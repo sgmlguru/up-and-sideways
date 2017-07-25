@@ -1,102 +1,243 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
     <head>
-        <meta charset="utf-8">
-
-        <title>Up and Sideways</title>
-
-        <link rel="stylesheet" href="./reveal.js/css/reveal.css">
-        <link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme">
-
-        <link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/reveal.css" />
+        <link rel="stylesheet" href="css/theme/white.css" />
+        <link rel="stylesheet" href="css/nicg.css" />
+        <link rel="stylesheet" href="lib/css/zenburn.css" />
+        <meta charset="UTF-8" />
     </head>
-
     <body>
         <div class="reveal">
             <div class="slides">
-                <section data-markdown="slides.md"
-                         data-separator="^\n----  ----\n$"
-                         data-separator-vertical="^\n----\n$">
+                <section>
+                    <h2>Up and Sideways</h2>
+                    <h4>Migrating legal documents from RTF to XML</h4>
+                    <h4>Balisage 2017</h4>
+                    <p>Ari Nordström / ari@sgmlguru.org / @sgmlguru</p>
+                </section>
+                
+                <section data-background-image="img/halsburys-laws.jpg">
+                    <!--<h3 style="color: white">Halsbury's Laws of England</h3>-->
+                    
+                    <ul>
+                        <li style="color: white" class="fragment">Legal commentary</li>
+                        <li style="color: white" class="fragment">104 volumes</li>
+                    </ul>
+                    
+                    <!--<img class="stretch" src="img/halsburys-laws.jpg"/>-->
+                    
+                    <aside class="notes">
+                        <ul>
+                            <li class="fragment">Legal commentary</li>
+                            <li class="fragment">104 titles</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section>
+                    <section>
+                        <h3>The RTF</h3>
+                    </section>
+                    
+                    <section>
+                        <table>
+                            <tr>
+                                <td><img src="img/duty_calls.png" alt="Chapters, sections, appendices..."/></td>
+                                <td>
+                                    <ul class="none">
+                                        <li>Chapters, sections, appendices...</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <aside class="notes">
+                            
+                        </aside>
+                        
+                    </section>
+                    
+                    <section>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="img/volpara.PNG" alt="Volume paragraphs"/>
+                                </td>
+                                <td>
+                                    <p>Volume paragraphs</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/supp.PNG" alt="Supplement paragraphs"/>
+                                </td>
+                                <td>
+                                    <p >Supplement paragraphs</p>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <aside class="notes">
+                            
+                        </aside>
+                    </section>
+                    
+                    
+                    <section data-background-image="img/ordered-list.PNG" data-background-size="contain">
+                        <table>
+                            <tr>
+                                <td><!--<img src="img/ordered-list.png" alt="Block-level"/>--></td>
+                                <td>
+                                    <ul class="none">
+                                        <li class="fragment">(Multiple types of) lists...</li>
+                                        <li class="fragment">Footnotes</li>
+                                        <li class="fragment">Tables</li>
+                                        <li class="fragment">Paragraphs</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <aside class="notes">
+                            
+                        </aside>
+                    </section>
+                    
+                    
+                    <section>
+                        <table>
+                            <tr>
+                                <td><img src="img/duty_calls.png" alt="Inline"/></td>
+                                <td>
+                                    <ul class="none">
+                                        <li>Emphasis</li>
+                                        <li class="fragment">Footnotes</li>
+                                        <li class="fragment">Citations</li>
+                                        <li class="fragment">Cross-references</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <aside class="notes">
+                            
+                        </aside>
+                    </section>
+                    
+                </section>
+                
+                <section>
+                    <section>
+                        <h3>RTF ⇨ DOCX ⇨ XHTML ⇨ XML</h3>
+                    </section>
+                    
+                    <section>
+                        <ul class="none">
+                            <li>Aspose: RTF to docx</li>
+                            <li class="fragment">XSLT: docx to <q>flat</q> XHTML</li>
+                        </ul>
+                        
+                        <pre class="fragment">
+                            <code class="hljs">TBA
+                                <!-- p with @data-lexisnexis-word-style -->
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Yes, I know, all XHTML is flat</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <p>XSLT: Create wrappers</p>
+                    </section>
+                    
+                    <section>
+                        <p>XSLT: Convert to target XML</p>
+                    </section>
+                    
+                    <section>
+                        <p>XSLT: Enrich until done</p>
+                    </section>
+                </section>
+                 
+                <section>
+                    <h3>Pipeline with one XSLT per step</h3>
+                    
+                    <ul>
+                        <li>Nic's XProc tools</li>
+                        <li>Narrow focus per step</li>
+                        <li>Easier to add and remove functionality</li>
+                        <li>Easier to debug</li>
+                        <li>ID transforms with modes</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <section>
+                        <h3>Adding semantics</h3>
+                    </section>
+                    
+                    <section>
+                        <ul>
+                            <li>* Wrappers from flat XHTML</li>
+                            <li>* Start/End RTF styles</li>
+                            <li>* Infer list items, headings, footnotes (label, separator, contents)</li>
+                            <li>* for-each-groups</li>
+                            <li>* following-sibling to add to group, descendant to remove duplicates</li>
+                            <li>* LOTS of regular expressions</li>
+                        </ul>
+                    </section>
+                </section>
+                
+                
+                <section>
+                    <section>
+                        <h3>QA</h3>
+                    </section>
+                    
+                    <section>
+                        <ul>
+                            <li>XSpec <span class="fragment">(writing XSLT)</span></li>
+                            <li class="fragment">XSpec <span class="fragment">(testing pipeline intermediate steps)</span></li>
+                            <li class="fragment">Schematron</li>
+                            <li class="fragment">DTD validation</li>
+                        </ul>
+                        
+                        <aside class="notes">
+                            
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <p>But also...</p>
+                        <p class="fragment">Editor reviews</p>
+                        <p class="fragment">Technical reviews</p>
+                    </section>
+                </section>
+                
+                
+                
+                <section>
+                    <h2><img class="floater" src="images/dubious_study_2x.png" alt="Dubious Study"
+                             /><span class="clear-here">Don't</span> Believe Everything you Write on
+                        the Internet</h2>
                 </section>
             </div>
         </div>
 
-        <script src="./reveal.js/lib/js/head.min.js"></script>
-        <script src="./reveal.js/js/reveal.js"></script>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
         <script>
-Reveal.initialize({
-    // reveal.js configuration, cf. https://github.com/hakimel/reveal.js/#configuration
-    controls: true,
-    progress: true,
-    history: true,
-    center: true,
-    transition: 'convex',
-    slideNumber: 'c/t',
-    width: 960,
-    height: 800,
-
-    // Optional libraries used to extend on reveal.js
-    dependencies: [
-      { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-
-      // enable built-in plugins
-      { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: './reveal.js/plugin/zoom/zoom.js' },
-      { src: './reveal.js/plugin/notes/notes.js' },
-      { src: './reveal.js/plugin/math/math.js' },
-
-      // enable additionally installed plugins
-      { src: './reveal.js/plugin/menu/menu.js' },
-      { src: './reveal.js/plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize(); } },
-      { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize(); toc_progress.create(); } },
-    ],
-
-    // plugin settings
-
-    // plugin math, cf. https://github.com/hakimel/reveal.js#mathjax
-    math: {
-        mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
-        config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-    },
-
-    // plugin menu, cf. https://github.com/denehyg/reveal.js-menu#configuration
-    menu: {
-        side: 'left',
-        numbers: false,
-        titleSelector: 'h1, h2, h3, h4, h5, h6',
-        hideMissingTitles: false,
-        markers: false,
-        custom: false,
-        themes: [
-            { name: 'Black', theme: './reveal.js/css/theme/black.css' },
-            { name: 'White', theme: './reveal.js/css/theme/white.css' },
-            { name: 'League', theme: './reveal.js/css/theme/league.css' },
-            { name: 'Sky', theme: './reveal.js/css/theme/sky.css' },
-            { name: 'Beige', theme: './reveal.js/css/theme/beige.css' },
-            { name: 'Simple', theme: './reveal.js/css/theme/simple.css' },
-            { name: 'Serif', theme: './reveal.js/css/theme/serif.css' },
-            { name: 'Blood', theme: './reveal.js/css/theme/blood.css' },
-            { name: 'Night', theme: './reveal.js/css/theme/night.css' },
-            { name: 'Moon', theme: './reveal.js/css/theme/moon.css' },
-            { name: 'Solarized', theme: './reveal.js/css/theme/solarized.css' }
-        ],
-        transitions: true,
-        openButton: true,
-        openSlideNumber: true,
-        keyboard: true
-    },
-});
-        </script>
+			Reveal.initialize({
+				dependencies: [
+				    { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
+                    { src: 'plugin/multiplex/master.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
     </body>
-
 </html>
-
-
-<!--
-file created by github.com/theno/fabsetup
-substituted variables:
-{{presi_title_space}}: Up and Sideways
--->
