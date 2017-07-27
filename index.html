@@ -3,7 +3,8 @@
     <head>
         <link rel="stylesheet" href="css/reveal.css" />
         <link rel="stylesheet" href="css/theme/white.css" />
-        <link rel="stylesheet" href="css/nicg.css" />
+        <!--<link rel="stylesheet" href="css/nicg.css" />-->
+        <link rel="stylesheet" href="css/ari.css" />
         <link rel="stylesheet" href="lib/css/zenburn.css" />
         <meta charset="UTF-8" />
     </head>
@@ -20,17 +21,17 @@
                 <section data-background-image="img/halsburys-laws.jpg">
                     <!--<h3 style="color: white">Halsbury's Laws of England</h3>-->
                     
-                    <ul>
+                    <!--<ul>
                         <li style="color: white" class="fragment">Legal commentary</li>
                         <li style="color: white" class="fragment">104 volumes</li>
-                    </ul>
+                    </ul>-->
                     
                     <!--<img class="stretch" src="img/halsburys-laws.jpg"/>-->
                     
                     <aside class="notes">
                         <ul>
                             <li class="fragment">Legal commentary</li>
-                            <li class="fragment">104 titles</li>
+                            <li class="fragment">104 volumes</li>
                         </ul>
                     </aside>
                 </section>
@@ -43,7 +44,7 @@
                     <section>
                         <table>
                             <tr>
-                                <td><img src="img/duty_calls.png" alt="Chapters, sections, appendices..."/></td>
+                                <td><img src="img/TBA" alt="Chapters, sections, appendices..."/></td>
                                 <td>
                                     <ul class="none">
                                         <li>Chapters, sections, appendices...</li>
@@ -84,17 +85,17 @@
                     </section>
                     
                     
-                    <section data-background-image="img/ordered-list.PNG" data-background-size="contain">
+                    <!-- data-background-image="img/ordered-list.PNG" data-background-size="contain" -->
+                    <section>
                         <table>
                             <tr>
-                                <td><!--<img src="img/ordered-list.png" alt="Block-level"/>--></td>
                                 <td>
-                                    <ul class="none">
-                                        <li class="fragment">(Multiple types of) lists...</li>
-                                        <li class="fragment">Footnotes</li>
-                                        <li class="fragment">Tables</li>
-                                        <li class="fragment">Paragraphs</li>
-                                    </ul>
+                                    <img style="vertical-align: center; width: 100%;" src="img/ordered-list.PNG"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 30%">
+                                    <p>Lists, footnotes, tables, paragraphs...</p>
                                 </td>
                             </tr>
                         </table>
@@ -108,14 +109,13 @@
                     <section>
                         <table>
                             <tr>
-                                <td><img src="img/duty_calls.png" alt="Inline"/></td>
                                 <td>
-                                    <ul class="none">
-                                        <li>Emphasis</li>
-                                        <li class="fragment">Footnotes</li>
-                                        <li class="fragment">Citations</li>
-                                        <li class="fragment">Cross-references</li>
-                                    </ul>
+                                    <img src="img/citations.PNG" alt="Cross-references inline"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Emphasis, superscript, citations, cross-references...</p>
                                 </td>
                             </tr>
                         </table>
@@ -133,15 +133,19 @@
                     </section>
                     
                     <section>
+                        <p>Aspose: RTF to docx</p>
+                    </section>
+                    
+                    <section>
                         <ul class="none">
                             <li>Aspose: RTF to docx</li>
                             <li class="fragment">XSLT: docx to <q>flat</q> XHTML</li>
                         </ul>
                         
                         <pre class="fragment">
-                            <code class="hljs">TBA
-                                <!-- p with @data-lexisnexis-word-style -->
-                            </code>
+                            <code class="hljs">&lt;p data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;Council tax benefit 
+has been abolished and replaced by council
+tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </pre>
                         
                         <aside class="notes">
@@ -151,10 +155,12 @@
                     
                     <section>
                         <p>XSLT: Create wrappers</p>
+                        <!-- Image of XHTML section and/or div -->
                     </section>
                     
                     <section>
                         <p>XSLT: Convert to target XML</p>
+                        <!-- Image of  -->
                     </section>
                     
                     <section>
@@ -163,15 +169,159 @@
                 </section>
                  
                 <section>
-                    <h3>Pipeline with one XSLT per step</h3>
                     
-                    <ul>
-                        <li>Nic's XProc tools</li>
-                        <li>Narrow focus per step</li>
-                        <li>Easier to add and remove functionality</li>
-                        <li>Easier to debug</li>
-                        <li>ID transforms with modes</li>
-                    </ul>
+                    <section>
+                        <h3>Pipeline with one XSLT per step</h3>
+                        
+                    </section>
+                    
+                    <section>
+                        <!-- TBA Nic's XProc Tools -->
+                        
+                    </section>
+                    
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs"><!--  data-trim data-noescape -->
+&lt;manifest
+    xmlns=&quot;http://www.corbas.co.uk/ns/transforms/data&quot;
+    xml:id=&quot;migration.p1.p2&quot;
+    description=&quot;migration.p1.p2&quot;
+    xml:base=&quot;.&quot;
+    version=&quot;1.0&quot;&gt;
+
+    &lt;group
+        xml:id=&quot;p12p2.conversion&quot;
+        description=&quot;p12p2.conversion&quot;
+        xml:base=&quot;.&quot;
+        enabled=&quot;true&quot;&gt;
+
+        &lt;item
+            href=&quot;p2_structure.xsl&quot;
+            description=&quot;Do some basic structural stuff&quot;/&gt;
+        &lt;item
+            href=&quot;p2_orphan-supps.xsl&quot;
+            description=&quot;Handle orphaned supps&quot;/&gt;
+        &lt;item
+            href=&quot;p2_trintro.xsl&quot;
+            description=&quot;Handle tr:intros&quot;/&gt;
+        &lt;item
+            href=&quot;p2_volbreaks.xsl&quot;
+            description=&quot;Generate HALS volume break PIs&quot;/&gt;
+        &lt;item
+            href=&quot;p2_para-grp.xsl&quot;
+            description=&quot;Produce vol paras and supp paras&quot;/&gt;
+        &lt;item
+            href=&quot;p2_blockpara.xsl&quot;
+            description=&quot;Add display attrs to supp blockparasw. 
+                Add print-only supp blockparas.&quot;/&gt;
+        &lt;item
+            href=&quot;p2_ftnotes.xsl&quot;
+            description=&quot;Move footnotes inline&quot;/&gt;
+        &lt;item
+            href=&quot;p2_orphan-ftnotes.xsl&quot;
+            description=&quot;Convert orphaned footnotes in supps to
+                paras starting with the footnote label&quot;/&gt;
+        &lt;item
+            href=&quot;p2_removecaseinfo.xsl&quot;
+            description=&quot;Remove metadata in case refs&quot;/&gt;
+        <mark>&lt;item
+            href=&quot;p2_xpp-pi.xsl&quot;
+            description=&quot;Generate XPP PIs&quot;/&gt;</mark>
+        &lt;item
+            href=&quot;p2_xref-cleanup.xsl&quot;
+            description=&quot;Removes leading and trailing whitespace from xrefs&quot;/&gt;
+        &lt;item
+            href=&quot;p2_cleanup.xsl&quot;
+            description=&quot;Clean up the XML, including namespaces&quot;/&gt;
+    &lt;/group&gt;
+
+&lt;/manifest&gt;
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Narrow focus per step</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        
+                        <pre class="stretch">
+                            <code class="hljs">
+&lt;xsl:template
+    match=&quot;para&quot;
+    mode=&quot;MY_SUBSET&quot;&gt;
+    &lt;xsl:copy copy-namespaces=&quot;no&quot;&gt;
+        &lt;xsl:copy-of select=&quot;@*&quot;/&gt;
+        &lt;xsl:attribute name=&quot;needs-review&quot;&gt;
+            &lt;xsl:value-of
+                select=&quot;if (parent::*[@pub='supp'])
+                then ('yes')
+                else ('no')&quot;/&gt;
+        &lt;/xsl:attribute&gt;
+        &lt;xsl:apply-templates
+            select=&quot;node()&quot;
+            mode=&quot;MY_SUBSET&quot;/&gt;
+    &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Easier to add and remove functionality</p>
+                            <p>This adds @needs-review</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs">
+&lt;xsl:template
+    match=&quot;node()&quot;
+    mode=&quot;#all&quot;&gt;
+    &lt;xsl:copy copy-namespaces=&quot;no&quot;&gt;
+        &lt;xsl:copy-of select=&quot;@*&quot;/&gt;
+        &lt;xsl:apply-templates
+            select=&quot;node()&quot;
+            mode=&quot;#current&quot;/&gt;
+    &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>ID transforms with modes</p>
+                            <p>There is always a default ID transform</p>
+                            <p>If something is left unprocessed there tends to be a @data-lexisnexis-style attribute</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs">
+-rw-r--r-- 1 arino 6.6M Apr  3 12:05 1-p2_structure.xsl.xml
+-rw-r--r-- 1 arino 9.2M Apr  3 12:05 2-p2_orphan-supps.xsl.xml
+-rw-r--r-- 1 arino 8.8M Apr  3 12:05 3-p2_trintro.xsl.xml
+-rw-r--r-- 1 arino 8.8M Apr  3 12:05 4-p2_volbreaks.xsl.xml
+-rw-r--r-- 1 arino 8.0M Apr  3 12:05 5-p2_para-grp.xsl.xml
+-rw-r--r-- 1 arino 8.0M Apr  3 12:05 6-p2_blockpara.xsl.xml
+-rw-r--r-- 1 arino 7.3M Apr  3 12:05 7-p2_ftnotes.xsl.xml
+-rw-r--r-- 1 arino 7.3M Apr  3 12:05 8-p2_orphan-ftnotes.xsl.xml
+-rw-r--r-- 1 arino 7.3M Apr  3 12:05 9-p2_removecaseinfo.xsl.xml
+-rw-r--r-- 1 arino 7.3M Apr  3 12:05 10-p2_xpp-pi.xsl.xml
+-rw-r--r-- 1 arino 7.3M Apr  3 12:05 11-p2_xref-cleanup.xsl.xml
+-rw-r--r-- 1 arino 6.3M Apr  3 12:05 12-p2_cleanup.xsl.xml
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Debug output from every step</p>
+                            
+                            <p>As opposed to micropipelining...</p>
+                        </aside>
+                    </section>
+                    
                 </section>
                 
                 <section>
@@ -180,14 +330,286 @@
                     </section>
                     
                     <section>
-                        <ul>
-                            <li>* Wrappers from flat XHTML</li>
-                            <li>* Start/End RTF styles</li>
-                            <li>* Infer list items, headings, footnotes (label, separator, contents)</li>
-                            <li>* for-each-groups</li>
-                            <li>* following-sibling to add to group, descendant to remove duplicates</li>
-                            <li>* LOTS of regular expressions</li>
-                        </ul>
+                        <!-- Wrappers from flat XHTML, sections and subsection -->
+                        
+                        <pre class="stretch">
+                            <code data-trim data-noescape>&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-H2&quot;</span>&gt;
+    &lt;span class=&quot;bold&quot;&gt;(1) THE BENEFITS&lt;/span&gt;
+&lt;/p&gt;
+&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;</span>
+    &lt;span class=&quot;bold&quot;&gt;1. The benefits.&lt;/span&gt;
+&lt;/p&gt;
+&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;</span>Following a review of the social security benefits
+        system&lt;sup&gt;1&lt;/sup&gt;, the government introduced universal credit, a new single payment for
+    persons looking for work or on a low income&lt;sup&gt;2&lt;/sup&gt;.&lt;/p&gt;
+
+...
+
+
+&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;</span>
+    &lt;span class=&quot;bold&quot;&gt;2. Overhaul of benefits.&lt;/span&gt;
+&lt;/p&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Wrappers created from flat XHTML</p>
+                            <p>Note @data-lexisnexis-word-style</p>
+                        </aside>
+                        
+                    </section>
+                    
+                    <section>
+                        <!-- Start/End TBA -->
+                        
+                        <img src="img/TBA" alt="NUS/NUE example"/>
+                        
+                        <pre>
+                            <code>
+                                <!-- Resulting XHTML styles -->
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Start/End RTF styles</p>
+                            <p>These are 'noterups'</p>
+                        </aside>
+                        
+                    </section>
+                    
+                    <section>
+                        <!-- More generally, for-each-group -->
+                        <!-- for-each-group example? -->
+                        
+                        <aside class="notes">
+                            <p>for-each-groups</p>
+                        </aside>
+                        
+                    </section>
+                    
+                    <!-- Lists, footnotes, etc -->
+                    <section>
+                        <h4>Lists, footnotes, heading numbering</h4>
+                        <img src="img/ordered-list.PNG" alt="Ordered list with tabs"/>
+                        
+                        <aside class="notes">
+                            <p>Note the tab between the label and the item contents</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <!-- Lists, headings, footnotes -->
+                        
+                        <pre class="stretch">
+                            <code data-trim data-noescape>&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-L1&quot;</span>&gt;(1)&lt;span class=&quot;tab&quot;/&gt;protecting plants or wood or other
+    plant products from harmful organisms&lt;sup&gt;8&lt;/sup&gt;;&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(2)&lt;span class=&quot;tab&quot;/&gt;regulating the growth of
+    plants&lt;sup&gt;9&lt;/sup&gt;;&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(3)&lt;span class=&quot;tab&quot;/&gt;giving protection against harmful
+    creatures&lt;sup&gt;10&lt;/sup&gt;;&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(4)&lt;span class=&quot;tab&quot;/&gt;rendering such creatures
+    harmless&lt;sup&gt;11&lt;/sup&gt;;&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(5)&lt;span class=&quot;tab&quot;/&gt;controlling organisms with harmful
+    or unwanted effects on water systems, buildings or other structures, or on manufactured
+    products&lt;sup&gt;12&lt;/sup&gt;; and&lt;/p&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Infer list items, headings, footnotes (label, separator, contents)</p>
+                            <p>Tab char used as a separator</p>
+                            <p>Regular expressions to determine list type</p>
+                            <p>More on this in a bit</p>
+                        </aside>
+                        
+                    </section>
+                    
+                    
+                    
+                    <section>
+                        <!-- Design pattern: include with following sibling, remove with descendant -->
+                        <p>following-sibling to add to group, descendant to remove duplicates</p>
+                    </section>
+                    
+                    <section>
+                        <h3>Citations and cross-references</h3>
+                        <!-- Image of xref -->
+                        <img src="img/volpara-ref.PNG" alt="Volume paragraph reference"/>
+                        
+                        <aside class="notes">
+                            <p>No RTF style, only small caps on the keyword "para"</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <img src="img/external-volpara-ref.PNG" alt="External vol para reference"/>
+                        
+                        <aside class="notes">
+                            <p>Referenced title followed by para number</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <p>Variations of a basic theme</p>
+                        <!-- EXAMPLES -->
+                        <!-- numbers in small caps span, too -->
+                        <!-- ranges, lists, combinations -->
+                        <!-- non-standard  -->
+                    </section>
+                    
+                    <section>
+                        <pre>
+                            <code class="hljs">TBA
+                                <!-- Shortened template -->
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>So what this means is...</p>
+                        </aside>
+                    </section>
+                    
+                </section>
+                
+                
+                <section>
+                    <section>
+                        <!-- Reg exps -->
+                        <h3>LOTS of regular expressions</h3>
+                        
+                        <aside class="notes">
+                            <p>XSLT 3 would have been nice</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <pre>
+                            <code class="hljs">
+                                <!-- File listing for HALS_Income -->
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>For example...</p>
+                            <p>Stitching dozens of files into a single large one</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <pre>
+                            <code class="hljs">09_Children_12(635-704).xml</code>
+                        </pre>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;xsl:param
+    name=&quot;base-pattern&quot;
+    select=&quot;'[()a-zA-Z0-9_\s%]+'&quot;/&gt;
+
+&lt;xsl:param
+    name=&quot;numparas-pattern&quot;
+    select=&quot;'_[0-9]{2}\([0-9]+[A-Z]*[\-][0-9]+[A-Z]*\)'&quot;/&gt;
+
+&lt;xsl:param
+    name=&quot;suffix-pattern&quot;
+    select=&quot;'\.xml'&quot;/&gt;
+
+&lt;xsl:param
+    name=&quot;pattern&quot;&gt;
+    select=&quot;concat('(',$base-pattern,')(',$numparas-pattern,')',$suffix-pattern)&quot;/&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Again, Halsbury is very formalistic. The naming conventions have been used for online publishing from RTF.</p>
+                            <p>Used very early on, on XHTML files. They are goruped using a single XSLT with a file listing from XProc, all body contents are merged and the resulting file is named using info from the first file.</p>
+                        </aside>
+                    </section>
+                    
+                    
+                    <!-- List type regexp -->
+                    <section>
+                        <h4>List types</h4>
+                    </section>
+                    
+                    <section>
+                        <pre class="stretch">
+                            <code>&lt;xsl:when 
+    test=&quot;@data-lexisnexis-word-style=('L1', 'vol-L1', 'vol-L1CL', 'vol-L1P', 'sup-L1', 'sup-L1CL')&quot;&gt;
+    &lt;xsl:element
+        name=&quot;core:listitem&quot;&gt;
+        &lt;xsl:attribute
+            name=&quot;type&quot;&gt;
+            &lt;xsl:choose&gt;
+                &lt;xsl:when
+                    test=&quot;span[1][@class='smallcaps' and 
+                    matches(.,'\(?[a-z]+\)?')]&quot;&gt;
+                    ...
+                &lt;/xsl:when&gt;
+                
+                &lt;xsl:otherwise&gt;
+                    ...
+                &lt;/xsl:otherwise&gt;
+            &lt;/xsl:choose&gt;
+            
+        &lt;/xsl:attribute&gt;
+        
+        &lt;xsl:element
+            name=&quot;core:para&quot;&gt;
+            &lt;xsl:copy-of
+                select=&quot;@*&quot;/&gt;
+            &lt;xsl:apply-templates
+                select=&quot;node()[not(following-sibling::span[@class='tab'])]&quot;
+                mode=&quot;KEPLER_STRUCTURE&quot;/&gt;
+        &lt;/xsl:element&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:when&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Pick the RTF style name used</p>
+                            <p>Apply regexps on content to extract stuff</p>
+                            <p>So something like this in a when or otherwise...</p>
+                        </aside>
+                        
+                    </section>
+                    
+                    <section>
+                        <pre class="stretch">
+                            <code data-trim data-noescape>&lt;xsl:analyze-string
+    select=&quot;if (node()[1][self::span and .!=''])
+        then (span[1]/text()[1])
+        else (text()[1])&quot;
+        regex=&quot;^(\(([0-9]+)\)[\s]?)|
+        (\(([ivx]+)\)?[\s]?)|
+        (\(([A-Z]+)\))|
+        (\(([a-z]+)\))$&quot;&gt;
+    &lt;xsl:matching-substring&gt;
+        &lt;xsl:choose&gt;
+            &lt;xsl:when
+                test=&quot;regex-group(1)!=''&quot;&gt;number&lt;/xsl:when&gt;
+            &lt;xsl:when
+                test=&quot;regex-group(3)!=''&quot;&gt;lower-roman&lt;/xsl:when&gt;
+            &lt;xsl:when
+                test=&quot;regex-group(5)!=''&quot;&gt;upper-alpha&lt;/xsl:when&gt;
+            &lt;xsl:when
+                test=&quot;regex-group(7)!=''&quot;&gt;lower-alpha&lt;/xsl:when&gt;
+        &lt;/xsl:choose&gt;
+    &lt;/xsl:matching-substring&gt;
+    &lt;xsl:non-matching-substring&gt;
+        &lt;xsl:value-of
+            select=&quot;'plain'&quot;/&gt;
+    &lt;/xsl:non-matching-substring&gt;
+&lt;/xsl:analyze-string&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>There's lots of this sort of thing</p>
+                            <p>Lots of list types in legal docs</p>
+                            <p>Strict order of list type appearance</p>
+                            <p>Saving grace: Commentary is very formalistic</p>
+                        </aside>
+                    </section>
+                    
+                    
+                    <section>
+                        <!-- More reg exps -->
+                        <!-- Stitcher, cites, xrefs... -->
                     </section>
                 </section>
                 
@@ -200,9 +622,59 @@
                     <section>
                         <ul>
                             <li>XSpec <span class="fragment">(writing XSLT)</span></li>
-                            <li class="fragment">XSpec <span class="fragment">(testing pipeline intermediate steps)</span></li>
-                            <li class="fragment">Schematron</li>
-                            <li class="fragment">DTD validation</li>
+                            <li class="fragment">Compare input with output, 39 XSLTs later...</li>
+                            <li class="fragment">Compare batches of input/output files</li>
+                        </ul>
+                        
+                        <aside class="notes">
+                            <p>XSpec when writing XSLTs is tremendously useful</p>
+                            <p>It sort of loses its meaning when testing pipelines, though</p>
+                            <p>...and batches of files, obviously</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <ul>
+                            <li>XSpec (testing pipeline intermediate steps)</li>
+                        </ul>
+                        
+                        <!-- XSpec manifest example -->
+                        <pre>
+                            <code class="hljs">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;tests 
+    xmlns=&quot;http://www.sgmlguru.org/ns/xproc/steps&quot; 
+    manifest=&quot;xslt/manifest-stair-p1-to-p2.xml&quot;
+    xml:base=&quot;file:/c:/Users/nordstax/repos/ca-hsd/stair&quot;&gt;
+    
+    &lt;!-- Use paths relative to /tests/@xml:base for pipeline manifest, XSLT and XSpec --&gt;
+    
+    &lt;test 
+        xslt=&quot;xslt/p2_structure.xsl&quot; 
+        xspec=&quot;xspec/p2_structure.xspec&quot; 
+        focus=&quot;batch&quot;/&gt;
+    &lt;test 
+        xslt=&quot;xslt/p2_para-grp.xsl&quot; 
+        xspec=&quot;xspec/p2_para-grp.xspec&quot; 
+        focus=&quot;batch&quot;/&gt;
+    &lt;test 
+        xslt=&quot;xslt/p2_ftnotes.xsl&quot; 
+        xspec=&quot;xspec/p2_ftnotes.xspec&quot; 
+        focus=&quot;batch&quot;/&gt;
+&lt;/tests&gt;
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Ant macro and XSLTs to generate XSpecs for every file in a batch</p>
+                            <p>Ant macro and XSLTs to run a manifest of XSpecs</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <ul>
+                            <li>Schematron</li>
+                            <li class="fragment">DTD validation (obviously)</li>
                         </ul>
                         
                         <aside class="notes">
@@ -217,13 +689,37 @@
                     </section>
                 </section>
                 
-                
-                
                 <section>
-                    <h2><img class="floater" src="images/dubious_study_2x.png" alt="Dubious Study"
-                             /><span class="clear-here">Don't</span> Believe Everything you Write on
-                        the Internet</h2>
+                    <!-- What I've learned -->
+                    <section>
+                        <h3>What I've Learned</h3>
+                    </section>
+                    
+                    <section>
+                        <p>Keep it simple!</p>
+                        <!-- Don't do more than ONE (related) THING in a step -->
+                        <!-- Example from inline XSLT -->
+                        <!-- Split big steps (cites and xrefs) -->
+                    </section>
+                    
+                    <section>
+                        <p>Micropipelining won't work here</p>
+                        <!-- Variables, debugging variable output -->
+                        <!-- Micropipelining code example (hundreds of megs) -->
+                    </section>
+                    
+                    <section>
+                        <p>Don't use <code>contains()</code> or <code>starts-with()</code></p>
+                        <p class="fragment">Or nested <code>replace()</code>, or...</p>
+                        <!-- Actually, nested replace() can be OK -->
+                    </section>
+                    
+                    <section>
+                        <p><code>matches()</code> and a proper regex is ALWAYS better</p>
+                    </section>
                 </section>
+                
+                
             </div>
         </div>
 
