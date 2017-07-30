@@ -15,50 +15,45 @@
                     <h2>Up and Sideways</h2>
                     <h4>Migrating legal documents from RTF to XML</h4>
                     <h4>Balisage 2017</h4>
-                    <p>Ari Nordström / ari@sgmlguru.org / @sgmlguru</p>
+                    <p>Ari Nordström | ari.nordstrom@gmail.com</p>
                 </section>
                 
-                <section data-background-image="img/halsburys-laws.jpg">
-                    <!--<h3 style="color: white">Halsbury's Laws of England</h3>-->
-                    
-                    <!--<ul>
-                        <li style="color: white" class="fragment">Legal commentary</li>
-                        <li style="color: white" class="fragment">104 volumes</li>
-                    </ul>-->
-                    
-                    <!--<img class="stretch" src="img/halsburys-laws.jpg"/>-->
-                    
-                    <aside class="notes">
-                        <ul>
-                            <li class="fragment">Legal commentary</li>
-                            <li class="fragment">104 volumes</li>
-                        </ul>
-                    </aside>
-                </section>
+                
+                
+                <!-- START of Halsbury intro -->
                 
                 <section>
-                    <section>
-                        <h3>The RTF</h3>
+                    <section data-background-image="img/halsburys-laws.jpg">
+                        <aside class="notes">
+                            <ul>
+                                <li class="fragment">Legal commentary</li>
+                                <li class="fragment">104 volumes</li>
+                            </ul>
+                            <p>The project is huge, way too big for a 30-min presentation</p>
+                            <p>I thought I'd give you a couple of glimpses</p>
+                        </aside>
                     </section>
                     
+                    <!-- Chapters and sections -->
                     <section>
                         <table>
                             <tr>
-                                <td><img src="img/TBA" alt="Chapters, sections, appendices..."/></td>
+                                <td><img src="img/sections.PNG" alt="Chapters, sections, appendices..."/></td>
                                 <td>
                                     <ul class="none">
-                                        <li>Chapters, sections, appendices...</li>
+                                        <li>Chapter &amp; section structure...</li>
                                     </ul>
                                 </td>
                             </tr>
                         </table>
                         
                         <aside class="notes">
-                            
+                            <p>The building blocks of legal commentary are the usual suspects...</p>
                         </aside>
                         
                     </section>
                     
+                    <!-- Vol paras and supp paras -->
                     <section>
                         <table>
                             <tr>
@@ -80,11 +75,14 @@
                         </table>
                         
                         <aside class="notes">
-                            
+                            <p>Vol paras are the carriers of the actual commentary</p>
+                            <p>A volume paragraph is a numbered block of information</p>
+                            <p>Supposedly innermost section level (except they are violating this, too)</p>
+                            <p>A supplement para amends (and sometimes repeals) the vol para</p>
                         </aside>
                     </section>
                     
-                    
+                    <!-- Content inside vol paras here? -->
                     <!-- data-background-image="img/ordered-list.PNG" data-background-size="contain" -->
                     <section>
                         <table>
@@ -101,7 +99,9 @@
                         </table>
                         
                         <aside class="notes">
-                            
+                            <p>The usua block-level components are here, from ordinary paras to lists to tables to footnotes.</p>
+                            <p>This is a list. Note the tabs between the label and the contents.</p>
+                            <p>Legal commentary employs a number of different ordered list types in a single vol para (so they can be refrenced).</p>
                         </aside>
                     </section>
                     
@@ -121,19 +121,36 @@
                         </table>
                         
                         <aside class="notes">
-                            
+                            <p>Inline</p>
+                            <p>Superscript only for footnote refs</p>
+                            <p>Citations and xrefs are sort of the heart of commentary, usually found in footnotes</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- Updates and Aa paras -->
+                    <section>
+                        <img src="img/a-para.PNG" alt="A para"/>
+                        
+                        <aside class="notes">
+                            <p>When the supplement grows too big, a new vol para is created</p>
+                            <p>Since the vol para numbering cannot change every time there is an update, such a new vol para is called an A para</p>
+                            <p>Halsbury is updated very frequently, thrugh so-called noterups</p>
+                            <p>Once a year, there is a reissue where everything is renumbered</p>
                         </aside>
                     </section>
                     
                 </section>
                 
+                <!-- END of Halsbury (and RTF) intro -->
+                
+                
+                
+                <!-- START of  Pipelines and Conversions -->
+                
                 <section>
                     <section>
-                        <h3>RTF ⇨ DOCX ⇨ XHTML ⇨ XML</h3>
-                    </section>
-                    
-                    <section>
-                        <p>Aspose: RTF to docx</p>
+                        <h3>Pipelines</h3>
+                        <p>RTF → DOCX → XHTML → XML</p>
                     </section>
                     
                     <section>
@@ -149,41 +166,51 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </pre>
                         
                         <aside class="notes">
-                            <p>Yes, I know, all XHTML is flat</p>
+                            <p>What we do to get there...</p>
+                            <p>Aspose is a third-party product that converts RTF to docx, among other things</p>
+                            <p>For our purposes, it's a black box</p>
+                            <p>Everything after that is XSLT-based</p>
+                            <p>docx to FLAT XHTML</p>
                         </aside>
                     </section>
                     
                     <section>
-                        <p>XSLT: Create wrappers</p>
-                        <!-- Image of XHTML section and/or div -->
-                    </section>
-                    
-                    <section>
-                        <p>XSLT: Convert to target XML</p>
-                        <!-- Image of  -->
-                    </section>
-                    
-                    <section>
-                        <p>XSLT: Enrich until done</p>
-                    </section>
-                </section>
-                 
-                <section>
-                    
-                    <section>
                         <h3>Pipeline with one XSLT per step</h3>
-                        
                     </section>
                     
                     <section>
                         <!-- TBA Nic's XProc Tools -->
+                        <p>Nig Gibson's XProc Tools and Mapping Tools</p>
                         
+                        <blockquote>We need to read the .Docx or
+                            WordML file and and transform the flat, formatting-rich
+                            XML in a well structured XML document.
+                            One approach to this problem is to create a pipeline that
+                            uses a progressive refinement technique to achieve a simple
+                            sequence of transformations from one format to another</blockquote>
+                        
+                        <aside class="notes">
+                            <p>One change at a time</p>
+                            <p>No attempt is done to produc valid XML until much later</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <!-- TBA Nic's XProc Tools -->
+                        <h4>Nig Gibson's XProc Tools and Mapping Tools</h4>
+                        <p>(see <a href="https://github.com/Corbas/xproc-tools">https://github.com/Corbas/xproc-tools</a> and <a href="https://github.com/Corbas/mapping-tools">https://github.com/Corbas/mapping-tools</a>)</p>
+                        <p>Publishing with XProc, XML London 2015: <a href="http://xmllondon.com/2015/xmllondon-2015-proceedings.pdf#page=81">http://xmllondon.com/2015/xmllondon-2015-proceedings.pdf#page=81</a></p>
+                        
+                        <aside class="notes">
+                            <!-- Borrow explanation from Nic's Guthub page -->
+                            <p>One change at a time</p>
+                            <p>No attempt is done to produc valid XML until much later</p>
+                        </aside>
                     </section>
                     
                     <section>
                         <pre class="stretch">
-                            <code class="hljs"><!--  data-trim data-noescape -->
-&lt;manifest
+                            <code class="hljs">&lt;manifest
     xmlns=&quot;http://www.corbas.co.uk/ns/transforms/data&quot;
     xml:id=&quot;migration.p1.p2&quot;
     description=&quot;migration.p1.p2&quot;
@@ -236,8 +263,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
             description=&quot;Clean up the XML, including namespaces&quot;/&gt;
     &lt;/group&gt;
 
-&lt;/manifest&gt;
-                            </code>
+&lt;/manifest&gt;</code>
                         </pre>
                         
                         <aside class="notes">
@@ -245,6 +271,44 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </aside>
                     </section>
                     
+                    <section>
+                        <p>One step = One XSLT</p>
+                        
+                        <aside class="notes">
+                            <p>I can't stress this enough.</p>
+                        </aside>
+                    </section>
+                    
+                    
+                    <!-- Default ID transform -->
+                    <section>
+                        <pre>
+                            <code>&lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;xsl:apply-templates select=&quot;node()&quot; mode=&quot;MY_SUBSET&quot;/&gt;
+&lt;/xsl:template&gt;</code>
+                        </pre>
+                        
+                        <pre>
+                            <code class="hljs">
+&lt;xsl:template
+    match=&quot;node()&quot;
+    mode=&quot;#all&quot;&gt;
+    &lt;xsl:copy copy-namespaces=&quot;no&quot;&gt;
+        &lt;xsl:copy-of select=&quot;@*&quot;/&gt;
+        &lt;xsl:apply-templates
+            select=&quot;node()&quot;
+            mode=&quot;#current&quot;/&gt;
+    &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;
+                            </code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>There is always a default ID transform</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- ID transform and step explanation -->
                     <section>
                         
                         <pre class="stretch">
@@ -271,32 +335,12 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         <aside class="notes">
                             <p>Easier to add and remove functionality</p>
                             <p>This adds @needs-review</p>
-                        </aside>
-                    </section>
-                    
-                    <section>
-                        <pre class="stretch">
-                            <code class="hljs">
-&lt;xsl:template
-    match=&quot;node()&quot;
-    mode=&quot;#all&quot;&gt;
-    &lt;xsl:copy copy-namespaces=&quot;no&quot;&gt;
-        &lt;xsl:copy-of select=&quot;@*&quot;/&gt;
-        &lt;xsl:apply-templates
-            select=&quot;node()&quot;
-            mode=&quot;#current&quot;/&gt;
-    &lt;/xsl:copy&gt;
-&lt;/xsl:template&gt;
-                            </code>
-                        </pre>
-                        
-                        <aside class="notes">
-                            <p>ID transforms with modes</p>
-                            <p>There is always a default ID transform</p>
                             <p>If something is left unprocessed there tends to be a @data-lexisnexis-style attribute</p>
                         </aside>
                     </section>
                     
+                    
+                    <!-- Debug output -->
                     <section>
                         <pre class="stretch">
                             <code class="hljs">
@@ -318,67 +362,246 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         <aside class="notes">
                             <p>Debug output from every step</p>
                             
-                            <p>As opposed to micropipelining...</p>
+                            <p>Compare to micropipelining</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- Brief mention of Ant macros -->
+                    <section>
+                        <p>Ant macros for XProc, batch conversions, validate, schematron, ...</p>
+                        <!-- Ant macro code -->
+                        <aside class="notes">
+                            <p>Library of Ant macrodefs for most things XML and for batch operations</p>
                         </aside>
                     </section>
                     
                 </section>
                 
+                <!-- END of pipeline explanations -->
+                
+                
+                
+                
+                <!-- START of Examples -->
+                
                 <section>
                     <section>
-                        <h3>Adding semantics</h3>
+                        <p>Some examples</p>
                     </section>
                     
                     <section>
-                        <!-- Wrappers from flat XHTML, sections and subsection -->
+                        <!-- Img of below fragment -->
+                        <img src="img/prison-example.PNG" alt="Section and vol para hierarchy"/>
                         
+                        <aside class="notes">
+                            <p>Let's have a look at a basic example</p>
+                            <p>The heading is on level 3</p>
+                            <p>The mini summary is a search result text</p>
+                            <p>Note the B and E RTF styles</p>
+                            <p>The '482.' heading is a vol para, the actual carrier of commentary</p>
+                            <p>Note the superscript</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <!-- Add 'flat' XHTML markup here -->
                         <pre class="stretch">
-                            <code data-trim data-noescape>&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-H2&quot;</span>&gt;
-    &lt;span class=&quot;bold&quot;&gt;(1) THE BENEFITS&lt;/span&gt;
+                            <code class="hljs"  data-trim data-noescape>&lt;p data-lexisnexis-word-style=&quot;vol-H3&quot;&gt;
+    &lt;span class=&quot;bold&quot;&gt;(ii) Classification of Prison Establishments for Adults&lt;/span&gt;
 &lt;/p&gt;
-&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;</span>
-    &lt;span class=&quot;bold&quot;&gt;1. The benefits.&lt;/span&gt;
+&lt;p data-lexisnexis-word-style=&quot;MiniSummaryB&quot;&gt;
+    &lt;span class=&quot;bold&quot;&gt;#MiniSummaryB&lt;/span&gt;
 &lt;/p&gt;
-&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;</span>Following a review of the social security benefits
-        system&lt;sup&gt;1&lt;/sup&gt;, the government introduced universal credit, a new single payment for
-    persons looking for work or on a low income&lt;sup&gt;2&lt;/sup&gt;.&lt;/p&gt;
-
-...
-
-
-&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;</span>
-    &lt;span class=&quot;bold&quot;&gt;2. Overhaul of benefits.&lt;/span&gt;
-&lt;/p&gt;</code>
+&lt;p data-lexisnexis-word-style=&quot;n-MiniSummary&quot;&gt;Although
+    there is no statutory requirement for the classification of prisons, every adult prison for
+    male prisoners is classified so that it falls into one of four categories: local prisons;
+    closed training prisons; the High Security Estate; and open prisons. This document describes
+    these four categories of prison establishments for male prisoners, as well as woman's
+    prisons and democratic therapeutic communities.&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;MiniSummaryE&quot;&gt;
+    &lt;span class=&quot;bold&quot;&gt;#MiniSummaryE&lt;/span&gt;
+&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;
+    &lt;span class=&quot;bold&quot;&gt;482. Classification of prisons.&lt;/span&gt;
+&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;Although
+    there is no statutory requirement for the classification of prisons&lt;sup&gt;1&lt;/sup&gt;, every adult
+    prison for male prisoners is classified so that it falls into one of four categories: local
+    prisons; closed training prisons; the High Security Estate; and open prisons.&lt;/p&gt;</code>
                         </pre>
                         
                         <aside class="notes">
-                            <p>Wrappers created from flat XHTML</p>
-                            <p>Note @data-lexisnexis-word-style</p>
+                            <p>This is docx converted to flat XHTML.</p>
+                            <p>Everything is a <code>p</code>, but with a processing attribute.</p>
+                            <p>So we employ a number of steps to add wrappers and such to this</p>
                         </aside>
+                    </section>
+                    
+                    <!-- Section hierarchy -->
+                    <!--<section>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;section map:level=&quot;3&quot; data-lexisnexis-word-style=&quot;vol-H3&quot;&gt;
+    &lt;h3 map:level=&quot;3&quot; data-lexisnexis-word-style=&quot;vol-H3&quot;&gt;
+        &lt;span class=&quot;bold&quot;&gt; (ii) Classification of Prison Establishments for Adults&lt;/span&gt;
+    &lt;/h3&gt;
+    &lt;div data-lexisnexis-word-style=&quot;MiniSummary&quot;&gt;
+        &lt;p data-lexisnexis-word-style=&quot;n-MiniSummary&quot;&gt;Although there is no statutory requirement for the classification of prisons,
+            every adult prison for male prisoners is classified so that it falls into one of
+            four categories: local prisons; closed training prisons; the High Security Estate;
+            and open prisons. This document describes these four categories of prison
+            establishments for male prisoners, as well as woman's prisons and democratic
+            therapeutic communities.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;section map:level=&quot;7&quot; data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;
+        &lt;h7 map:level=&quot;7&quot; data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;
+            &lt;span class=&quot;bold&quot;&gt;482. Classification of prisons.&lt;/span&gt;
+        &lt;/h7&gt;
+        &lt;p data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;Although there is no statutory requirement for the classification of
+            prisons&lt;sup&gt;1&lt;/sup&gt;, every adult prison for male prisoners is classified so that
+            it falls into one of four categories: local prisons; closed training prisons; the
+            High Security Estate; and open prisons.&lt;/p&gt;</code>
+                        </pre>
+                    </section>-->
+                    
+                    <!-- Section wrapper slide -->
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;xsl:variable 
+    name=&quot;max-title-level&quot;
+    select=&quot;max(//@map:level)&quot;/&gt;
+
+&lt;xsl:template match=&quot;body&quot;&gt;
+    &lt;xsl:copy&gt;
+        &lt;xsl:apply-templates select=&quot;@*&quot;/&gt;
+        &lt;xsl:call-template name=&quot;process-titles&quot;/&gt;
+    &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;</code>
+                        </pre>
                         
+                        <aside class="notes">
+                            <p>Count maximum levels</p>
+                            <p>Call template used recursively</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- Second section wrap slide -->
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;xsl:template name=&quot;process-titles&quot; as=&quot;node()*&quot;&gt;
+    &lt;xsl:param name=&quot;level&quot; select=&quot;$max-title-level&quot;/&gt;
+    &lt;xsl:param name=&quot;content&quot; select=&quot;node()&quot; as=&quot;node()*&quot;/&gt;
+    &lt;xsl:variable name=&quot;result&quot; as=&quot;node()*&quot;&gt;
+        &lt;xsl:for-each-group
+            select=&quot;$content&quot;
+            group-starting-with=&quot;*[not(self::section)][@map:level]&quot;&gt;
+            &lt;xsl:choose&gt;
+                &lt;!-- if we have a current level title based group, wrap it --&gt;
+                &lt;xsl:when
+                    test=&quot;self::*[not(self::section)][@map:level] and @map:level = $level&quot;&gt;
+                    &lt;section&gt;
+                        &lt;xsl:apply-templates select=&quot;@* except @xml:id&quot;/&gt;
+                        &lt;xsl:copy-of select=&quot;current-group()&quot;/&gt;
+                    &lt;/section&gt;
+                &lt;/xsl:when&gt;
+                &lt;xsl:otherwise&gt;
+                    &lt;xsl:copy-of select=&quot;current-group()&quot;/&gt;
+                &lt;/xsl:otherwise&gt;
+            &lt;/xsl:choose&gt;
+        &lt;/xsl:for-each-group&gt;
+    &lt;/xsl:variable&gt;
+
+    &lt;xsl:choose&gt;
+        &lt;xsl:when test=&quot;$level gt 1&quot;&gt;
+            &lt;xsl:call-template name=&quot;process-titles&quot;&gt;
+                &lt;xsl:with-param name=&quot;level&quot; select=&quot;$level - 1&quot;/&gt;
+                &lt;xsl:with-param name=&quot;content&quot; select=&quot;$result&quot;/&gt;
+            &lt;/xsl:call-template&gt;
+        &lt;/xsl:when&gt;
+        &lt;xsl:otherwise&gt;
+            &lt;xsl:sequence select=&quot;$result&quot;/&gt;
+        &lt;/xsl:otherwise&gt;
+    &lt;/xsl:choose&gt;
+&lt;/xsl:template&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Start with innermost section</p>
+                            <p>Copy to parameter $content, set $level to $level - 1 and move to next level up</p>
+                            <p>This is one way of wrapping things</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- Mini summary div -->
+                    <section>
+                        <!-- Mini summary -->
+                        <img src="img/mini-summary.PNG" alt="Mini summary example"/>
+                        
+                        <aside class="notes">
+                            <p>The mini summary is easy enough to convert - note the B and E RTF styles</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- Mini summary div -->
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;xsl:variable
+	name=&quot;section-start&quot;
+	select=&quot;preceding-sibling::p[ends-with(., 'B')][matches(normalize-space(.), concat('^[\[#]?', @data-lexisnexis-word-style, '$'),'i')][1]&quot;/&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Find out where the thing starts...</p>
+                        </aside>
                     </section>
                     
                     <section>
-                        <!-- Start/End TBA -->
-                        
-                        <img src="img/TBA" alt="NUS/NUE example"/>
-                        
-                        <pre>
-                            <code>
-                                <!-- Resulting XHTML styles -->
-                            </code>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;xsl:variable name=&quot;end-class&quot;
+	select=&quot;replace($section-start/@data-lexisnexis-word-style, 'B$', 'E')&quot;/&gt;
+
+&lt;!-- find the first appropriate section end after the current node --&gt;
+&lt;xsl:variable name=&quot;section-end&quot;
+	select=&quot;$section-start/following-sibling::p[lower-case(@data-lexisnexis-word-style)=lower-case($end-class)][1][. &gt;&gt; current()]&quot;/&gt;</code>
                         </pre>
                         
                         <aside class="notes">
-                            <p>Start/End RTF styles</p>
-                            <p>These are 'noterups'</p>
+                            <p>...what we want to call the result, and where it ends...</p>
+                            <p>Div creation</p>
+                            <p>Div converted to core:mini-summary later</p>
                         </aside>
-                        
                     </section>
                     
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;xsl:when test=&quot;$section-start and $section-end&quot;&gt;
+	&lt;xsl:copy copy-namespaces=&quot;no&quot;&gt;
+		&lt;xsl:attribute name=&quot;cword:section&quot; select=&quot;generate-id($section-start)&quot;/&gt;
+		&lt;xsl:attribute name=&quot;cword:section-class&quot; select=&quot;$section-start/@data-lexisnexis-word-style&quot;/&gt;
+		&lt;xsl:copy-of select=&quot;@*|node()&quot;/&gt;
+	&lt;/xsl:copy&gt;
+&lt;/xsl:when&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>...and wrap it in a div</p>
+                            <p>Div converted to core:mini-summary later</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- NUS/NUE similar -->
+                    <section>
+                        <img src="img/NUS-NUE.PNG" alt="NUS/NUE example"/>
+                        <aside class="notes">
+                            <p>This is handled in a similar manner. And with the same code, the difference being the 'S' (rather than 'B')</p>
+                            <p>There are other similar cases, for example, <bold>hardcopy only</bold>.</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- Lists (for-each-group) -->
                     <section>
                         <!-- More generally, for-each-group -->
-                        <!-- for-each-group example? -->
+                        
+                        <p>for-each-group</p>
                         
                         <aside class="notes">
                             <p>for-each-groups</p>
@@ -396,50 +619,268 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </aside>
                     </section>
                     
+                    <!-- Group list items in list wrppers -->
                     <section>
-                        <!-- Lists, headings, footnotes -->
-                        
                         <pre class="stretch">
-                            <code data-trim data-noescape>&lt;p <span class="fragment highlight-blue">data-lexisnexis-word-style=&quot;vol-L1&quot;</span>&gt;(1)&lt;span class=&quot;tab&quot;/&gt;protecting plants or wood or other
-    plant products from harmful organisms&lt;sup&gt;8&lt;/sup&gt;;&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(2)&lt;span class=&quot;tab&quot;/&gt;regulating the growth of
-    plants&lt;sup&gt;9&lt;/sup&gt;;&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(3)&lt;span class=&quot;tab&quot;/&gt;giving protection against harmful
-    creatures&lt;sup&gt;10&lt;/sup&gt;;&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(4)&lt;span class=&quot;tab&quot;/&gt;rendering such creatures
-    harmless&lt;sup&gt;11&lt;/sup&gt;;&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(5)&lt;span class=&quot;tab&quot;/&gt;controlling organisms with harmful
-    or unwanted effects on water systems, buildings or other structures, or on manufactured
-    products&lt;sup&gt;12&lt;/sup&gt;; and&lt;/p&gt;</code>
+                            <code class="hljs">&lt;xsl:for-each-group 
+    select=&quot;*&quot; 
+    group-adjacent=&quot;boolean(self::core:listitem[core:*/@data-lexisnexis-word-style=('L1','L2','L3',
+    'vol-L1', 'vol-L1CL', 'vol-L1P', 'vol-Quote', 'vol-L2','vol-L3', 
+    'sup-L1', 'sup-L1CL', 'sup-L2', 'sup-L3', 'term-ref',
+    'vol-QuoteL1', 'vol-FL1', 'vol-FL2')])&quot;&gt;
+    &lt;xsl:choose&gt;
+        &lt;xsl:when test=&quot;current-grouping-key()&quot;&gt;
+            &lt;xsl:element name=&quot;core:list&quot;&gt;
+                &lt;xsl:call-template name=&quot;restart-attr&quot;/&gt;
+                &lt;xsl:attribute name=&quot;type&quot; select=&quot;@type&quot;/&gt;
+                &lt;xsl:for-each-group
+                    select=&quot;current-group()&quot;
+                    group-adjacent=&quot;boolean(self::core:listitem[core:*/@data-lexisnexis-word-style=('L2','L3',
+                    'vol-L1P', 'vol-Quote','vol-L2','vol-L3',
+                    'sup-L2', 'sup-L3','term-ref', 'vol-FL2')])&quot;&gt;
+                    &lt;xsl:choose&gt;
+                        &lt;xsl:when test=&quot;current-grouping-key()&quot;&gt;
+                            &lt;xsl:element name=&quot;core:list&quot;&gt;
+                                &lt;xsl:attribute
+                                    name=&quot;type&quot;
+                                    select=&quot;@type&quot;/&gt;
+                                &lt;xsl:apply-templates
+                                    select=&quot;current-group()&quot; mode=&quot;KEPLER_LISTS&quot;/&gt;						
+                            &lt;/xsl:element&gt;
+                        &lt;/xsl:when&gt;
+                        &lt;xsl:otherwise&gt;
+                            &lt;xsl:apply-templates
+                                select=&quot;current-group()&quot;
+                                mode=&quot;KEPLER_LISTS&quot;/&gt;
+                        &lt;/xsl:otherwise&gt;
+                    &lt;/xsl:choose&gt;
+                &lt;/xsl:for-each-group&gt;
+            &lt;/xsl:element&gt;
+        &lt;/xsl:when&gt;
+        &lt;xsl:otherwise&gt;
+            &lt;xsl:apply-templates
+                select=&quot;current-group()&quot;
+                mode=&quot;KEPLER_LISTS&quot;/&gt;
+        &lt;/xsl:otherwise&gt;
+    &lt;/xsl:choose&gt;
+&lt;/xsl:for-each-group&gt;</code>
                         </pre>
                         
                         <aside class="notes">
-                            <p>Infer list items, headings, footnotes (label, separator, contents)</p>
-                            <p>Tab char used as a separator</p>
-                            <p>Regular expressions to determine list type</p>
-                            <p>More on this in a bit</p>
+                            <p>We made good use of for-each-group</p>
+                            <p>This wraps list items in list wrappers</p>
+                            <p>The many RTF styles are not actually always different</p>
                         </aside>
+                    </section>
+                    
+                    
+                    <!-- Vol paras (following-sibling processing) -->
+                    <section>
+                        <p><code>following-sibling</code> processing</p>
+                    </section>
+                    
+                    <!-- Vol para as a sequence of block-level elements -->
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs"></code>
+                        </pre>
                         
-                    </section>
-                    
-                    
-                    
-                    <section>
-                        <!-- Design pattern: include with following sibling, remove with descendant -->
-                        <p>following-sibling to add to group, descendant to remove duplicates</p>
+                        <aside class="notes">
+                            <p>Some of the early processing steps left unwrapped content behind</p>
+                            <p>Vol paras start with a core:para[@edpnum-start]</p>
+                        </aside>
                     </section>
                     
                     <section>
-                        <h3>Citations and cross-references</h3>
-                        <!-- Image of xref -->
+                        <pre class="stretch">
+                            <code class="hljs"></code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Here, I went with following-sibling::node() until next core:para[@edpnum-start]</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs"></code>
+                        </pre>
+                        <aside class="notes">
+                            <p>...which necessitated removing duplicated nodes by a matching delete on descendant axis</p>
+                            <p>This coding style happened because of historical reasons but was useful because...</p>
+                        </aside>
+                    </section>
+                    
+                    
+                    <section>
+                        <h3>Cross-references</h3>
+                        <!-- Image of internal xref -->
                         <img src="img/volpara-ref.PNG" alt="Volume paragraph reference"/>
+                        
+                        <!-- External xref -->
+                        <!--<img class="fragment" src="img/external-volpara-ref.PNG" alt="External vol para reference"/>-->
                         
                         <aside class="notes">
                             <p>No RTF style, only small caps on the keyword "para"</p>
+                            <!--<p>Referenced title followed by para number</p>-->
                         </aside>
                     </section>
                     
                     <section>
+                        <p>Transformed to something like this:</p>
+                        <pre>
+                            <code class="hljs">&lt;lnci:cite type=&quot;paragraph-ref&quot;&gt;
+    &lt;lnci:book&gt;
+        &lt;lnci:bookref&gt;
+            &lt;lnci:paragraph num=&quot;426&quot;/&gt;
+        &lt;/lnci:bookref&gt;
+    &lt;/lnci:book&gt;
+    &lt;lnci:content&gt;426&lt;/lnci:content&gt;
+&lt;/lnci:cite&gt;</code>
+                        </pre>
+                    </section>
+                    
+                    <section>
+                        <pre>
+                            <code class="hljs">See &lt;lnci:publicationname value=&quot;bankruptcy and individual insolvency&quot;&gt;&lt;core:emph typestyle=&quot;smcaps&quot;&gt;bankruptcy and individual insolvency&lt;/core:emph&gt;&lt;/lnci:publicationname&gt; vol 5 (2013) &lt;span class=&quot;smallcaps&quot;&gt;para&lt;/span&gt; 853.</code>
+                        </pre>
+                        
+                        <pre class="fragment">
+                            <code class="hljs">&lt;span class=&quot;smallcaps&quot;&gt;para 853&lt;/span&gt;</code>
+                        </pre>
+                        
+                        <pre class="fragment">
+                            <code class="hljs">&lt;core:para data-lexisnexis-word-style=&quot;vol-FP&quot;&gt;See &lt;span class=&quot;smallcaps&quot;&gt;paras&lt;/span&gt; 122, 145, 167, 853–854, 858–859.&lt;/core:para&gt;</code>
+                        </pre>
+                        
+                        
+                        <aside class="notes">
+                            <p>What you'd hope for</p>
+                            <p>Frequently they'd be inside the span</p>
+                            <p>And sometimes lists and ranges</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;core:emph typestyle=&quot;smcaps&quot;&gt;   
+    &lt;xsl:analyze-string select=&quot;.&quot; regex=&quot;^[\s]*(para[s]?)([\s]*)&quot;&gt;
+        &lt;xsl:matching-substring&gt;
+            &lt;xsl:value-of select=&quot;regex-group(1)&quot;/&gt;
+        &lt;/xsl:matching-substring&gt;
+    &lt;/xsl:analyze-string&gt;
+&lt;/core:emph&gt;
+
+&lt;xsl:choose&gt;
+    &lt;!-- Single ref inside --&gt;
+    &lt;xsl:when test=&quot;matches(.,'^para[s]?[\s]+([0-9]+[A-Z]*(\.[0-9]+)?)[\.]?$')&quot;&gt;
+        ...
+    &lt;/xsl:when&gt;
+    
+    &lt;!-- Combined range and list inside --&gt;
+    &lt;xsl:when test=&quot;matches(.,'^para[s]?[\s]*[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?(,\s+[0-9]+[A-Z]*([–][0-9]+[A-Z]*(\.[0-9]+)?)?)*$')&quot;&gt;
+        ...
+    &lt;/xsl:when&gt;
+    
+    &lt;!-- Single ref in following sibling --&gt;
+    &lt;xsl:when test=&quot;matches(following-sibling::text()[1],'^[\s]*([0-9]+[A-Z]*(\.[0-9]+)?)[^0-9A-Z&#x2013;,]')&quot;&gt;
+        ...
+    &lt;/xsl:when&gt;
+    
+    &lt;!-- Combined range and list follows outside --&gt;
+    &lt;xsl:when test=&quot;matches(following-sibling::text()[1],'^[\s]*[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?(,\s+[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?)*')&quot;&gt;
+        ...
+    &lt;/xsl:when&gt;
+    
+&lt;/xsl:choose&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Which neatly brings us to the (extensive) use of regular expressions...</p>
+                        </aside>
+                    </section>
+                    
+                </section>
+                
+                <!-- END of Examples -->
+                
+                
+                
+                <!-- START of regular expressions -->
+                
+                <section>
+                    
+                    <section>
+                        <!-- Reg exps -->
+                        <h3>LOTS and LOTS of regular expressions</h3>
+                        
+                        <aside class="notes">
+                            <p>XSLT 3 would have been nice</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- Back to xrefs -->
+                    <section>
+                        <p>Processing xrefs...</p>
+                        
+                        <pre>
+                            <code class="hljs">&lt;xsl:when test=&quot;matches(following-sibling::text()[1],'^[\s]*[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?(,\s+[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?)*')&quot;&gt;
+        ...
+    &lt;/xsl:when&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>This is one of the cases</p>
+                            <p>This is one where the vol para numbers follow OUTSIDE the PARA span</p>
+                        </aside>
+                    </section>
+                    
+                    <!-- Handling xrefs in following sibling -->
+                    <section>
+                        <pre class="stretch">
+                            <code class="hljs" data-trim data-noescape>&lt;xsl:analyze-string
+    <span class="fragment highlight-red">select=&quot;following-sibling::text()[1]&quot;</span>
+    regex=&quot;^[\s]*([0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?(,\s+[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?)*)(.+)$&quot;&gt;
+    &lt;xsl:matching-substring&gt;
+        &lt;xsl:text&gt; &lt;/xsl:text&gt;
+        &lt;xsl:for-each select=&quot;tokenize(regex-group(1),',')&quot;&gt;
+            &lt;lnci:paragraph&gt;
+                &lt;xsl:attribute
+                    name=&quot;num&quot;
+                    select=&quot;if (matches(.,'–'))
+                        then (normalize-space(substring-before(.,'–')))
+                        else normalize-space(.)&quot;/&gt;
+                &lt;xsl:if test=&quot;matches(.,'–')&quot;&gt;
+                    &lt;xsl:attribute
+                        name=&quot;lastnum&quot;&gt;
+                        &lt;xsl:value-of
+                            select=&quot;normalize-space(substring-after(.,'–'))&quot;/&gt;
+                    &lt;/xsl:attribute&gt;
+                &lt;/xsl:if&gt;
+                &lt;xsl:value-of
+                    select=&quot;normalize-space(.)&quot;/&gt;
+            &lt;/lnci:paragraph&gt;
+            &lt;xsl:if test=&quot;position()!=last()&quot;&gt;
+                &lt;xsl:text&gt;, &lt;/xsl:text&gt;
+            &lt;/xsl:if&gt;
+        &lt;/xsl:for-each&gt;
+        &lt;xsl:value-of select=&quot;regex-group(5)&quot;/&gt;
+    &lt;/xsl:matching-substring&gt;
+&lt;/xsl:analyze-string&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Never mind the hairy regex</p>
+                            <p>It's all about handling the different vol para refs there are (lists and ranges)</p>
+                            <p>...and there's a matching delete template for the descendant axis</p>
+                        </aside>
+                    </section>
+                    
+                    
+                    <!-- External xrefs -->
+                    <section>
+                        <h3>External Cross-references</h3>
+                        <!-- External xref -->
                         <img src="img/external-volpara-ref.PNG" alt="External vol para reference"/>
                         
                         <aside class="notes">
@@ -447,84 +888,68 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </aside>
                     </section>
                     
+                    <!-- text between pubname and ref -->
                     <section>
-                        <p>Variations of a basic theme</p>
-                        <!-- EXAMPLES -->
-                        <!-- numbers in small caps span, too -->
-                        <!-- ranges, lists, combinations -->
-                        <!-- non-standard  -->
-                    </section>
-                    
-                    <section>
-                        <pre>
-                            <code class="hljs">TBA
-                                <!-- Shortened template -->
-                            </code>
+                        <pre class="stretch" data-trim data-noescape>
+                            <code class="hljs">&lt;lnci:cite type=&quot;paragraph-ref&quot;&gt;
+    &lt;lnci:book&gt;
+        &lt;lnci:bookref&gt;
+            &lt;lnci:publicationname
+                value=&quot;sentencing&quot;/&gt;
+            &lt;lnci:paragraph
+                num=&quot;1&quot;/&gt;
+        &lt;/lnci:bookref&gt;
+    &lt;/lnci:book&gt;
+    &lt;lnci:content&gt;
+        &lt;core:emph typestyle=&quot;smcaps&quot;&gt;sentencing&lt;/core:emph&gt;<span class="fragment highlight-red"> vol 92 (2015) </span>&lt;core:emph
+            typestyle=&quot;smcaps&quot;&gt;para&lt;/core:emph&gt; 1&lt;/lnci:content&gt;
+&lt;/lnci:cite&gt;</code>
                         </pre>
                         
                         <aside class="notes">
-                            <p>So what this means is...</p>
+                            <p>We've already seen how the ref markup was created</p>
+                            <p>Publication names were also handled in an earlier step</p>
+                            <p>Wrapping the two in a cite element like this had to consider any text BETWEEN the two</p>
+                            <p>This was done with a regex, too. Not as easy as it may seem, however.</p>
                         </aside>
                     </section>
                     
-                </section>
-                
-                
-                <section>
+                    <!-- Lists -->
                     <section>
-                        <!-- Reg exps -->
-                        <h3>LOTS of regular expressions</h3>
+                        <p>Remember lists?</p>
+                        <img src="img/ordered-list.PNG" alt="Ordered list"/>
                         
                         <aside class="notes">
-                            <p>XSLT 3 would have been nice</p>
+                            <p>Another use of regular expressions</p>
+                            <p>Determine type of ordered list</p>
                         </aside>
                     </section>
                     
+                    
                     <section>
-                        <pre>
-                            <code class="hljs">
-                                <!-- File listing for HALS_Income -->
-                            </code>
-                        </pre>
+                        <!-- Lists, headings, footnotes -->
                         
-                        <aside class="notes">
-                            <p>For example...</p>
-                            <p>Stitching dozens of files into a single large one</p>
-                        </aside>
-                    </section>
-                    
-                    <section>
-                        <pre>
-                            <code class="hljs">09_Children_12(635-704).xml</code>
-                        </pre>
                         <pre class="stretch">
-                            <code class="hljs">&lt;xsl:param
-    name=&quot;base-pattern&quot;
-    select=&quot;'[()a-zA-Z0-9_\s%]+'&quot;/&gt;
-
-&lt;xsl:param
-    name=&quot;numparas-pattern&quot;
-    select=&quot;'_[0-9]{2}\([0-9]+[A-Z]*[\-][0-9]+[A-Z]*\)'&quot;/&gt;
-
-&lt;xsl:param
-    name=&quot;suffix-pattern&quot;
-    select=&quot;'\.xml'&quot;/&gt;
-
-&lt;xsl:param
-    name=&quot;pattern&quot;&gt;
-    select=&quot;concat('(',$base-pattern,')(',$numparas-pattern,')',$suffix-pattern)&quot;/&gt;</code>
+                            <code data-trim data-noescape>&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(1)<span class="highlight-red">&lt;span class=&quot;tab&quot;/&gt;</span>protecting plants or wood or other
+    plant products from harmful organisms&lt;sup&gt;8&lt;/sup&gt;;&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(2)<span class="highlight-red">&lt;span class=&quot;tab&quot;/&gt;</span>regulating the growth of
+    plants&lt;sup&gt;9&lt;/sup&gt;;&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(3)<span class="highlight-red">&lt;span class=&quot;tab&quot;/&gt;</span>giving protection against harmful
+    creatures&lt;sup&gt;10&lt;/sup&gt;;&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(4)<span class="highlight-red">&lt;span class=&quot;tab&quot;/&gt;</span>rendering such creatures
+    harmless&lt;sup&gt;11&lt;/sup&gt;;&lt;/p&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(5)<span class="highlight-red">&lt;span class=&quot;tab&quot;/&gt;</span>controlling organisms with harmful
+    or unwanted effects on water systems, buildings or other structures, or on manufactured
+    products&lt;sup&gt;12&lt;/sup&gt;; and&lt;/p&gt;</code>
                         </pre>
                         
                         <aside class="notes">
-                            <p>Again, Halsbury is very formalistic. The naming conventions have been used for online publishing from RTF.</p>
-                            <p>Used very early on, on XHTML files. They are goruped using a single XSLT with a file listing from XProc, all body contents are merged and the resulting file is named using info from the first file.</p>
+                            <p>This uses regexes to determine ordered list type</p>
+                            <p>Infer list items, headings, footnotes (label, separator, contents)</p>
+                            <p>Tab char used as a separator</p>
+                            <p>Regular expressions to determine list type</p>
                         </aside>
-                    </section>
-                    
-                    
-                    <!-- List type regexp -->
-                    <section>
-                        <h4>List types</h4>
+                        
                     </section>
                     
                     <section>
@@ -566,7 +991,6 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                             <p>Apply regexps on content to extract stuff</p>
                             <p>So something like this in a when or otherwise...</p>
                         </aside>
-                        
                     </section>
                     
                     <section>
@@ -605,14 +1029,259 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                             <p>Saving grace: Commentary is very formalistic</p>
                         </aside>
                     </section>
-                    
-                    
-                    <section>
-                        <!-- More reg exps -->
-                        <!-- Stitcher, cites, xrefs... -->
-                    </section>
                 </section>
                 
+                <!-- END of regular expressions -->
+                
+                
+                
+                <!-- START of file stitcher -->
+                
+                <section>
+                    
+                    <section>
+                        <h3>Stitching files together</h3>
+                    </section>
+                    
+                    <section>
+                        <pre class="stretch">
+                            <code>777K Jan 27 08:50 58A_IncomeTaxation_07(1294-1342).rtf
+750K Jan 27 08:51 58A_IncomeTaxation_08(1343-1396).rtf
+924K Jan 27 08:51 58A_IncomeTaxation_09(1397-1453).rtf
+1.1M Jan 27 08:51 58A_IncomeTaxation_10(1454-1522).rtf
+953K Jan 27 08:51 58A_IncomeTaxation_11(1523-1592).rtf
+803K Jan 27 08:51 58A_IncomeTaxation_12(1593-1632).rtf
+554K Jan 27 08:51 58A_IncomeTaxation_13(1633-1670).rtf
+587K Jan 27 08:51 58A_IncomeTaxation_14(1671-1703).rtf
+793K Jan 27 08:51 58A_IncomeTaxation_15(1704-1760).rtf
+959K Jan 27 08:55 59_IncomeTaxation_01(1761-1809).rtf
+1020K Jan 27 08:55 59_IncomeTaxation_02(1810-1866).rtf
+1.1M Jan 27 08:55 59_IncomeTaxation_03(1867-1924).rtf
+1.1M Jan 27 08:55 59_IncomeTaxation_04(1925-1975).rtf
+1.3M Jan 27 08:55 59_IncomeTaxation_05(1976-2025).rtf
+1.2M Jan 27 08:55 59_IncomeTaxation_06(2026-2074).rtf
+989K Jan 27 08:55 59_IncomeTaxation_07(2075-2128).rtf
+1.9M Jan 27 08:56 59_IncomeTaxation_08(2129-2174).rtf
+1.1M Jan 27 08:56 59_IncomeTaxation_09(2175-2214).rtf
+1.3M Jan 27 08:56 59_IncomeTaxation_10(2215-2276).rtf
+1.6M Jan 27 08:56 59_IncomeTaxation_11(2277-2332).rtf</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>For example...</p>
+                            <p>Stitching dozens of files into a single large one</p>
+                            <p>This shows a portion of the Income Taxation title</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <pre>
+                            <code class="hljs">09_Children_12(635-704).xml</code>
+                        </pre>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;xsl:param
+    name=&quot;base-pattern&quot;
+    select=&quot;'[()a-zA-Z0-9_\s%]+'&quot;/&gt;
+
+&lt;xsl:param
+    name=&quot;numparas-pattern&quot;
+    select=&quot;'_[0-9]{2}\([0-9]+[A-Z]*[\-][0-9]+[A-Z]*\)'&quot;/&gt;
+
+&lt;xsl:param
+    name=&quot;suffix-pattern&quot;
+    select=&quot;'\.xml'&quot;/&gt;
+
+&lt;xsl:param
+    name=&quot;pattern&quot;&gt;
+    select=&quot;concat('(',$base-pattern,')(',$numparas-pattern,')',$suffix-pattern)&quot;/&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>Again, Halsbury is very formalistic. The naming conventions have been used for online publishing from RTF.</p>
+                            <p>Used very early on, on XHTML files. They are grouped using a single XSLT with a file listing from XProc, all body contents are merged and the resulting file is named using info from the first file.</p>
+                        </aside>
+                    </section>
+                    
+                </section>
+                
+                <!-- END of file stitching -->
+                
+                
+                
+                <!-- START of Equations -->
+                
+                <section>
+                    <section>
+                        <h3>Equations</h3>
+                        
+                        <aside class="notes">
+                            <p>Relatively late in the game, I was made aware of some of the titles using equations</p>
+                            <p>These were created using MS Equation 3.0, basically an ancient version of MathType</p>
+                            <p>We want MathML!</p>
+                            <p>Aspose can't do MathML but the remains of the OLE objects were in the flat XHTML</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <pre>
+                            <code class="hljs">&lt;o:OLEObject
+    xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot;
+    Type=&quot;Embed&quot;
+    ProgID=&quot;Equation.3&quot;
+    ShapeID=&quot;_x0000_i1025&quot;
+    DrawAspect=&quot;Content&quot;
+    ObjectID=&quot;_1&quot;/&gt;</code>
+                        </pre>
+                        
+                        <pre class="fragment">
+                            <code class="hljs">&lt;?eqn file=&quot;HALS_Income.xml&quot; eqn-no=&quot;24&quot;?&gt;</code>
+                        </pre>
+                        
+                        <aside class="notes">
+                            <p>All I needed was to insert placeholders for every equation, in document order</p>
+                            <p>PIs were trivial to generate by adding a step early on to the first half of the conversion</p>
+                            <p>All I needed now was to convert the equations themselves and insert them, in document order, where the placeholders were</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <ul>
+                            <li>RTF to LaTeX (run <code>rtf2latex2e</code> in Ant)</li>
+                            <li class="fragment">LaTeX to XHTML+MathML (run <code>TtM</code> in Ant)</li>
+                            <li class="fragment">Normalise resulting XHTML (use file stitcher)</li>
+                            <li class="fragment">Count and reinsert equations (add XSLT step to conversion manifest)</li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <p>So, the final pipeline...</p>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;manifest&gt;
+    &lt;group&gt;
+        &lt;item href=&quot;word-to-xhtml5-elements.xsl&quot;/&gt;
+        &lt;item href=&quot;add-eqn-pi.xsl&quot;/&gt;
+        &lt;item href=&quot;remove-blockparas.xsl&quot;/&gt;
+        &lt;item href=&quot;wrap-blocks.xsl&quot;/&gt;
+        &lt;item href=&quot;merge_sups.xsl&quot;/&gt;
+        &lt;item href=&quot;merge_spans.xsl&quot;/&gt;	
+        &lt;processed-item
+            stylesheet=&quot;build-mapping-stylesheet.xsl&quot;&gt;
+            &lt;item
+                xml:base=&quot;../../mapping/&quot;
+                href=&quot;stair-halsbury.xml&quot;/&gt;
+        &lt;/processed-item&gt;
+        &lt;item href=&quot;rewrite-para-numbers.xsl&quot;/&gt;
+        &lt;item href=&quot;group-paras.xsl&quot;/&gt;
+        &lt;item href=&quot;insert-sections-hals-stair.xsl&quot;/&gt;
+    &lt;/group&gt;
+    
+    &lt;group&gt;
+        &lt;item href=&quot;map-word-symbols.xsl&quot;/&gt;
+        &lt;item href=&quot;add-hyperlinks.xsl&quot;/&gt;
+        &lt;item href=&quot;cleanup.xsl&quot;/&gt;
+    &lt;/group&gt;
+    
+    &lt;!-- Preprocess for Kepler (HTML to HTML) --&gt;
+    &lt;group&gt;
+        &lt;item href=&quot;add-missing-sections.xsl&quot;/&gt;
+        &lt;item href=&quot;add-intros.xsl&quot;/&gt;
+        &lt;item href=&quot;add-supp-chapter.xsl&quot;/&gt;
+    &lt;/group&gt;
+    
+    &lt;!-- Basic construction of Kepler block structures and inline markup --&gt;
+    &lt;group&gt;
+        &lt;item href=&quot;html2kepler_structure.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_minisummary.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_wrapintros.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_hardcopyonly.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_inline.xsl&quot;/&gt;
+    &lt;/group&gt;
+    
+    &lt;!-- Xref and cite processing --&gt;
+    &lt;group&gt;
+        &lt;item href=&quot;html2kepler_refspanmerge.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_casenames-spans.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_cites.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_inline-ref.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_construct-refs.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_xrefs.xsl&quot;/&gt;
+    &lt;/group&gt;
+    
+    &lt;!-- Other Kepler fixes --&gt;
+    &lt;group&gt;
+        &lt;item href=&quot;html2kepler_grouping.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_lists.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_quoted-lists.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_tables.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_appendices.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_desig.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_toc.xsl&quot;/&gt;	
+        &lt;item href=&quot;html2kepler_footnotes.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_metadata.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_listcleanup.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_listnumcleanup.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_cleanup.xsl&quot;/&gt;
+        &lt;item href=&quot;html2kepler_namespacecleanup.xsl&quot;/&gt;
+    &lt;/group&gt;
+&lt;/manifest&gt;
+</code>
+                        </pre>
+                    </section>
+                    
+                    <section>
+                        <p>...something to simplify the XHTML+MathML with...</p>
+                        <pre class="stretch">
+                            <code>&lt;manifest&gt;
+    &lt;group&gt;
+        &lt;item href=&quot;mml_simplify.xsl&quot;/&gt;
+    &lt;/group&gt;
+&lt;/manifest&gt;</code>
+                        </pre>
+                    </section>
+                    
+                    <section>
+                        <p>...and another couple of steps to refine.</p>
+                        <pre class="stretch">
+                            <code class="hljs">&lt;manifest&gt;
+    &lt;group&gt;
+        &lt;item href=&quot;p2_structure.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_orphan-supps.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_trintro.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_volbreaks.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_para-grp.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_blockpara.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_add-display-attrs-blockpara.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_ftnotes.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_orphan-ftnotes.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_removecaseinfo.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_xpp-pi.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_xref-cleanup.xsl&quot;/&gt;
+        &lt;item href=&quot;p2_heading-caps.xsl&quot;/&gt;
+        &lt;item href=&quot;mml_remove-para.xsl&quot;/&gt;
+        &lt;item href=&quot;mml_insert.xsl&quot;/&gt;
+    &lt;/group&gt;
+&lt;/manifest&gt;</code>
+                        </pre>
+                        
+                        <aside>
+                            <p>A total of 56 steps</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <p>Oh, and a namespace cleanup and "add DOCTYPE" step in the Ant script</p>
+                        
+                        <aside class="notes">
+                            <p>This is because the pipeline is actually run in XProc and we couldn't access THAT serialisation</p>
+                        </aside>
+                    </section>
+                    
+                </section>
+                
+                
+                
+                <!-- START of QA -->
                 
                 <section>
                     <section>
@@ -671,6 +1340,19 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </aside>
                     </section>
                     
+                    <!-- Reports -->
+                    <section>
+                        <ul>
+                            <li>Generated reports</li>
+                        </ul>
+                        
+                        <img src="img/TBA" alt="Footnote reports"/>
+                        
+                        <aside class="notes">
+                            <p>Footnote/footnote ref checks (matching pairs a must1)</p>
+                        </aside>
+                    </section>
+                    
                     <section>
                         <ul>
                             <li>Schematron</li>
@@ -678,7 +1360,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </ul>
                         
                         <aside class="notes">
-                            
+                            <p>Schematrons were also used extensively</p>
                         </aside>
                     </section>
                     
@@ -686,8 +1368,17 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         <p>But also...</p>
                         <p class="fragment">Editor reviews</p>
                         <p class="fragment">Technical reviews</p>
+                        
+                        <aside class="notes">
+                            <p>Why is it that editors always review the wrong things (this heading is not green and italicised)</p>
+                        </aside>
                     </section>
                 </section>
+                
+                <!-- END of QA -->
+                
+                
+                <!-- START of conclusions -->
                 
                 <section>
                     <!-- What I've learned -->
@@ -716,6 +1407,10 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <p><code>matches()</code> and a proper regex is ALWAYS better</p>
+                    </section>
+                    
+                    <section>
+                        <p>Thank you</p>
                     </section>
                 </section>
                 
