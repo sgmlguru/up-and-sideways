@@ -145,6 +145,7 @@
                 
                 
                 
+                
                 <!-- START of  Pipelines and Conversions -->
                 
                 <section>
@@ -160,7 +161,7 @@
                         </ul>
                         
                         <pre class="fragment">
-                            <code class="hljs">&lt;p data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;Council tax benefit 
+                            <code class="html">&lt;p data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;Council tax benefit 
 has been abolished and replaced by council
 tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </pre>
@@ -210,7 +211,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;manifest
+                            <code class="xml">&lt;manifest
     xmlns=&quot;http://www.corbas.co.uk/ns/transforms/data&quot;
     xml:id=&quot;migration.p1.p2&quot;
     description=&quot;migration.p1.p2&quot;
@@ -252,9 +253,9 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
         &lt;item
             href=&quot;p2_removecaseinfo.xsl&quot;
             description=&quot;Remove metadata in case refs&quot;/&gt;
-        <mark>&lt;item
+        &lt;item
             href=&quot;p2_xpp-pi.xsl&quot;
-            description=&quot;Generate XPP PIs&quot;/&gt;</mark>
+            description=&quot;Generate XPP PIs&quot;/&gt;
         &lt;item
             href=&quot;p2_xref-cleanup.xsl&quot;
             description=&quot;Removes leading and trailing whitespace from xrefs&quot;/&gt;
@@ -283,13 +284,13 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- Default ID transform -->
                     <section>
                         <pre>
-                            <code>&lt;xsl:template match=&quot;/&quot;&gt;
+                            <code class="xml">&lt;xsl:template match=&quot;/&quot;&gt;
     &lt;xsl:apply-templates select=&quot;node()&quot; mode=&quot;MY_SUBSET&quot;/&gt;
 &lt;/xsl:template&gt;</code>
                         </pre>
                         
                         <pre>
-                            <code class="hljs">
+                            <code class="xml">
 &lt;xsl:template
     match=&quot;node()&quot;
     mode=&quot;#all&quot;&gt;
@@ -312,7 +313,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <section>
                         
                         <pre class="stretch">
-                            <code class="hljs">
+                            <code class="xml">
 &lt;xsl:template
     match=&quot;para&quot;
     mode=&quot;MY_SUBSET&quot;&gt;
@@ -343,7 +344,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- Debug output -->
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">
+                            <code class="nohighlight">
 -rw-r--r-- 1 arino 6.6M Apr  3 12:05 1-p2_structure.xsl.xml
 -rw-r--r-- 1 arino 9.2M Apr  3 12:05 2-p2_orphan-supps.xsl.xml
 -rw-r--r-- 1 arino 8.8M Apr  3 12:05 3-p2_trintro.xsl.xml
@@ -386,7 +387,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                 
                 <section>
                     <section>
-                        <p>Some examples</p>
+                        <h3>Some examples</h3>
                     </section>
                     
                     <section>
@@ -403,28 +404,27 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </aside>
                     </section>
                     
+                    <!-- Flat XHTML with @map-level -->
                     <section>
-                        <!-- Add 'flat' XHTML markup here -->
                         <pre class="stretch">
-                            <code class="hljs"  data-trim data-noescape>&lt;p data-lexisnexis-word-style=&quot;vol-H3&quot;&gt;
-    &lt;span class=&quot;bold&quot;&gt;(ii) Classification of Prison Establishments for Adults&lt;/span&gt;
-&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;MiniSummaryB&quot;&gt;
-    &lt;span class=&quot;bold&quot;&gt;#MiniSummaryB&lt;/span&gt;
-&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;n-MiniSummary&quot;&gt;Although
-    there is no statutory requirement for the classification of prisons, every adult prison for
-    male prisoners is classified so that it falls into one of four categories: local prisons;
-    closed training prisons; the High Security Estate; and open prisons. This document describes
-    these four categories of prison establishments for male prisoners, as well as woman's
-    prisons and democratic therapeutic communities.&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;MiniSummaryE&quot;&gt;
-    &lt;span class=&quot;bold&quot;&gt;#MiniSummaryE&lt;/span&gt;
-&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;
+                            <code class="xml"  data-trim data-noescape>&lt;h3 map:level=&quot;3&quot;
+    data-lexisnexis-word-style=&quot;vol-H3&quot;&gt;
+    &lt;span class=&quot;bold&quot;&gt; (ii) Classification of Prison Establishments for Adults&lt;/span&gt;
+&lt;/h3&gt;
+&lt;div data-lexisnexis-word-style=&quot;MiniSummary&quot;&gt;
+    &lt;p data-lexisnexis-word-style=&quot;n-MiniSummary&quot;&gt;
+        Although there is no statutory requirement for the classification of prisons, every
+        adult prison for male prisoners is classified so that it falls into one of four
+        categories: local prisons; closed training prisons; the High Security Estate; and open
+        prisons. This document describes these four categories of prison establishments for male
+        prisoners, as well as woman's prisons and democratic therapeutic communities.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h7 map:level=&quot;7&quot;
+    data-lexisnexis-word-style=&quot;vol-PH&quot;&gt;
     &lt;span class=&quot;bold&quot;&gt;482. Classification of prisons.&lt;/span&gt;
-&lt;/p&gt;
-&lt;p data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;Although
+&lt;/h7&gt;
+&lt;p data-lexisnexis-word-style=&quot;vol-Para&quot;&gt;
+    Although
     there is no statutory requirement for the classification of prisons&lt;sup&gt;1&lt;/sup&gt;, every adult
     prison for male prisoners is classified so that it falls into one of four categories: local
     prisons; closed training prisons; the High Security Estate; and open prisons.&lt;/p&gt;</code>
@@ -440,7 +440,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- Section hierarchy -->
                     <!--<section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;section map:level=&quot;3&quot; data-lexisnexis-word-style=&quot;vol-H3&quot;&gt;
+                            <code class="xml">&lt;section map:level=&quot;3&quot; data-lexisnexis-word-style=&quot;vol-H3&quot;&gt;
     &lt;h3 map:level=&quot;3&quot; data-lexisnexis-word-style=&quot;vol-H3&quot;&gt;
         &lt;span class=&quot;bold&quot;&gt; (ii) Classification of Prison Establishments for Adults&lt;/span&gt;
     &lt;/h3&gt;
@@ -466,7 +466,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- Section wrapper slide -->
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;xsl:variable 
+                            <code class="xml">&lt;xsl:variable 
     name=&quot;max-title-level&quot;
     select=&quot;max(//@map:level)&quot;/&gt;
 
@@ -487,7 +487,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- Second section wrap slide -->
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;xsl:template name=&quot;process-titles&quot; as=&quot;node()*&quot;&gt;
+                            <code class="xml">&lt;xsl:template name=&quot;process-titles&quot; as=&quot;node()*&quot;&gt;
     &lt;xsl:param name=&quot;level&quot; select=&quot;$max-title-level&quot;/&gt;
     &lt;xsl:param name=&quot;content&quot; select=&quot;node()&quot; as=&quot;node()*&quot;/&gt;
     &lt;xsl:variable name=&quot;result&quot; as=&quot;node()*&quot;&gt;
@@ -544,9 +544,11 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- Mini summary div -->
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;xsl:variable
-	name=&quot;section-start&quot;
-	select=&quot;preceding-sibling::p[ends-with(., 'B')][matches(normalize-space(.), concat('^[\[#]?', @data-lexisnexis-word-style, '$'),'i')][1]&quot;/&gt;</code>
+                            <code class="xml">&lt;xsl:variable
+    name=&quot;section-start&quot;
+    select=&quot;preceding-sibling::p[ends-with(., 'B')]
+    [matches(normalize-space(.), concat('^[\[#]?', 
+    @data-lexisnexis-word-style, '$'),'i')][1]&quot;/&gt;</code>
                         </pre>
                         
                         <aside class="notes">
@@ -556,12 +558,15 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;xsl:variable name=&quot;end-class&quot;
-	select=&quot;replace($section-start/@data-lexisnexis-word-style, 'B$', 'E')&quot;/&gt;
+                            <code class="xml">&lt;xsl:variable name=&quot;end-class&quot;
+    select=&quot;replace($section-start/@data-lexisnexis-word-style,
+    'B$', 'E')&quot;/&gt;
 
 &lt;!-- find the first appropriate section end after the current node --&gt;
 &lt;xsl:variable name=&quot;section-end&quot;
-	select=&quot;$section-start/following-sibling::p[lower-case(@data-lexisnexis-word-style)=lower-case($end-class)][1][. &gt;&gt; current()]&quot;/&gt;</code>
+    select=&quot;$section-start/following-sibling::p
+    [lower-case(@data-lexisnexis-word-style)=
+    lower-case($end-class)][1][. &gt;&gt; current()]&quot;/&gt;</code>
                         </pre>
                         
                         <aside class="notes">
@@ -573,12 +578,19 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;xsl:when test=&quot;$section-start and $section-end&quot;&gt;
-	&lt;xsl:copy copy-namespaces=&quot;no&quot;&gt;
-		&lt;xsl:attribute name=&quot;cword:section&quot; select=&quot;generate-id($section-start)&quot;/&gt;
-		&lt;xsl:attribute name=&quot;cword:section-class&quot; select=&quot;$section-start/@data-lexisnexis-word-style&quot;/&gt;
-		&lt;xsl:copy-of select=&quot;@*|node()&quot;/&gt;
-	&lt;/xsl:copy&gt;
+                            <code class="xml">&lt;xsl:when 
+    test=&quot;$section-start and $section-end&quot;&gt;
+    &lt;xsl:copy 
+        copy-namespaces=&quot;no&quot;&gt;
+        &lt;xsl:attribute 
+            name=&quot;cword:section&quot; 
+            select=&quot;generate-id($section-start)&quot;/&gt;
+        &lt;xsl:attribute 
+            name=&quot;cword:section-class&quot;
+            select=&quot;$section-start/@data-lexisnexis-word-style&quot;/&gt;
+        &lt;xsl:copy-of
+            select=&quot;@*|node()&quot;/&gt;
+    &lt;/xsl:copy&gt;
 &lt;/xsl:when&gt;</code>
                         </pre>
                         
@@ -619,10 +631,10 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </aside>
                     </section>
                     
-                    <!-- Group list items in list wrppers -->
+                    <!-- Group list items in list wrappers -->
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;xsl:for-each-group 
+                            <code class="xml">&lt;xsl:for-each-group 
     select=&quot;*&quot; 
     group-adjacent=&quot;boolean(self::core:listitem[core:*/@data-lexisnexis-word-style=('L1','L2','L3',
     'vol-L1', 'vol-L1CL', 'vol-L1P', 'vol-Quote', 'vol-L2','vol-L3', 
@@ -645,7 +657,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                                     name=&quot;type&quot;
                                     select=&quot;@type&quot;/&gt;
                                 &lt;xsl:apply-templates
-                                    select=&quot;current-group()&quot; mode=&quot;KEPLER_LISTS&quot;/&gt;						
+                                    select=&quot;current-group()&quot; mode=&quot;KEPLER_LISTS&quot;/&gt;                        
                             &lt;/xsl:element&gt;
                         &lt;/xsl:when&gt;
                         &lt;xsl:otherwise&gt;
@@ -682,18 +694,61 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- Vol para as a sequence of block-level elements -->
                     <section>
                         <pre class="stretch">
-                            <code class="hljs"></code>
+                            <code class="xml">&lt;core:para 
+    edpnum-start=&quot;104&quot;&gt;
+    &lt;core:emph typestyle=&quot;bf&quot;&gt;Claimants required to 
+        participate in an interview.&lt;/core:emph&gt;
+&lt;/core:para&gt;
+&lt;core:para&gt;...&lt;/core:para&gt;
+&lt;core:list type=&quot;number&quot;&gt;
+    &lt;core:listitem type=&quot;number&quot;&gt;
+        &lt;core:para data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;...&lt;/core:para&gt;
+    &lt;/core:listitem&gt;
+    &lt;core:listitem type=&quot;number&quot;&gt;
+        ...
+    &lt;/core:listitem&gt;
+    ...
+&lt;/core:list&gt;
+&lt;core:para&gt;...&lt;/core:para&gt;
+
+&lt;core:para 
+    edpnum-start=&quot;105&quot;&gt;
+    ...
+&lt;/core:para&gt;</code>
                         </pre>
                         
                         <aside class="notes">
                             <p>Some of the early processing steps left unwrapped content behind</p>
                             <p>Vol paras start with a core:para[@edpnum-start]</p>
+                            <p>Needed to wrap the vol para in core:para-grp</p>
                         </aside>
                     </section>
                     
                     <section>
                         <pre class="stretch">
-                            <code class="hljs"></code>
+                            <code class="xml">&lt;xsl:template name=&quot;following-sibling-blocks&quot;&gt;
+    &lt;xsl:param name=&quot;num&quot;/&gt;
+    &lt;xsl:apply-templates 
+        select=&quot;following-sibling::*[(local-name(.)='para' or 
+        local-name(.)='list' or 
+        local-name(.)='blockquote' or
+        local-name(.)='figure' or
+        local-name(.)='comment' or
+        local-name(.)='legislation' or
+        local-name(.)='endnotes' or
+        local-name(.)='supp' or
+        local-name(.)='generic-hd' or
+        local-name(.)='q-a' or
+        local-name(.)='digest-grp' or
+        local-name(.)='form' or
+        local-name(.)='address' or
+        local-name(.)='table' or
+        local-name(.)='block-wrapper') and 
+        not(@edpnum-start) and 
+        preceding-sibling::core:para[@edpnum-start][1]
+            [@edpnum-start=$num]]&quot; 
+        mode=&quot;P2_INSIDE_PARA-GRP&quot;/&gt;
+&lt;/xsl:template&gt;</code>
                         </pre>
                         
                         <aside class="notes">
@@ -703,7 +758,23 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre class="stretch">
-                            <code class="hljs"></code>
+                            <code class="xml">&lt;xsl:template 
+    match=&quot;core:list|
+    core:para[not(@edpnum-start)]|
+    core:blockquote|
+    table|
+    core:figure|
+    lnb-leg:legislation|
+    fn:endnotes|
+    form:form|
+    core:comment|
+    core:q-a|
+    core:generic-hd|
+    lnbdig-case:digest-grp|
+    su:supp|
+    su:block-wrapper&quot; 
+    mode=&quot;P2_PARA-GRP&quot;
+    priority=&quot;1&quot;/&gt;</code>
                         </pre>
                         <aside class="notes">
                             <p>...which necessitated removing duplicated nodes by a matching delete on descendant axis</p>
@@ -729,7 +800,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <section>
                         <p>Transformed to something like this:</p>
                         <pre>
-                            <code class="hljs">&lt;lnci:cite type=&quot;paragraph-ref&quot;&gt;
+                            <code class="xml">&lt;lnci:cite type=&quot;paragraph-ref&quot;&gt;
     &lt;lnci:book&gt;
         &lt;lnci:bookref&gt;
             &lt;lnci:paragraph num=&quot;426&quot;/&gt;
@@ -742,15 +813,15 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre>
-                            <code class="hljs">See &lt;lnci:publicationname value=&quot;bankruptcy and individual insolvency&quot;&gt;&lt;core:emph typestyle=&quot;smcaps&quot;&gt;bankruptcy and individual insolvency&lt;/core:emph&gt;&lt;/lnci:publicationname&gt; vol 5 (2013) &lt;span class=&quot;smallcaps&quot;&gt;para&lt;/span&gt; 853.</code>
+                            <code class="xml">See &lt;lnci:publicationname value=&quot;bankruptcy and individual insolvency&quot;&gt;&lt;core:emph typestyle=&quot;smcaps&quot;&gt;bankruptcy and individual insolvency&lt;/core:emph&gt;&lt;/lnci:publicationname&gt; vol 5 (2013) &lt;span class=&quot;smallcaps&quot;&gt;para&lt;/span&gt; 853.</code>
                         </pre>
                         
                         <pre class="fragment">
-                            <code class="hljs">&lt;span class=&quot;smallcaps&quot;&gt;para 853&lt;/span&gt;</code>
+                            <code class="xml">&lt;span class=&quot;smallcaps&quot;&gt;para 853&lt;/span&gt;</code>
                         </pre>
                         
                         <pre class="fragment">
-                            <code class="hljs">&lt;core:para data-lexisnexis-word-style=&quot;vol-FP&quot;&gt;See &lt;span class=&quot;smallcaps&quot;&gt;paras&lt;/span&gt; 122, 145, 167, 853–854, 858–859.&lt;/core:para&gt;</code>
+                            <code class="xml">&lt;core:para data-lexisnexis-word-style=&quot;vol-FP&quot;&gt;See &lt;span class=&quot;smallcaps&quot;&gt;paras&lt;/span&gt; 122, 145, 167, 853–854, 858–859.&lt;/core:para&gt;</code>
                         </pre>
                         
                         
@@ -763,7 +834,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre class="stretch">
-                            <code class="hljs">&lt;core:emph typestyle=&quot;smcaps&quot;&gt;   
+                            <code class="xml">&lt;core:emph typestyle=&quot;smcaps&quot;&gt;   
     &lt;xsl:analyze-string select=&quot;.&quot; regex=&quot;^[\s]*(para[s]?)([\s]*)&quot;&gt;
         &lt;xsl:matching-substring&gt;
             &lt;xsl:value-of select=&quot;regex-group(1)&quot;/&gt;
@@ -812,7 +883,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <!-- Reg exps -->
-                        <h3>LOTS and LOTS of regular expressions</h3>
+                        <h3>LOTS of regular expressions</h3>
                         
                         <aside class="notes">
                             <p>XSLT 3 would have been nice</p>
@@ -824,7 +895,9 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         <p>Processing xrefs...</p>
                         
                         <pre>
-                            <code class="hljs">&lt;xsl:when test=&quot;matches(following-sibling::text()[1],'^[\s]*[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?(,\s+[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?)*')&quot;&gt;
+                            <code class="xml">&lt;xsl:when test=&quot;matches(following-sibling::text()[1],
+    '^[\s]*[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?
+    (,\s+[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?)*')&quot;&gt;
         ...
     &lt;/xsl:when&gt;</code>
                         </pre>
@@ -838,7 +911,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- Handling xrefs in following sibling -->
                     <section>
                         <pre class="stretch">
-                            <code class="hljs" data-trim data-noescape>&lt;xsl:analyze-string
+                            <code class="xml" data-trim data-noescape>&lt;xsl:analyze-string
     <span class="fragment highlight-red">select=&quot;following-sibling::text()[1]&quot;</span>
     regex=&quot;^[\s]*([0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?(,\s+[0-9]+[A-Z]*(\.[0-9]+)?([–][0-9]+[A-Z]*(\.[0-9]+)?)?)*)(.+)$&quot;&gt;
     &lt;xsl:matching-substring&gt;
@@ -891,7 +964,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <!-- text between pubname and ref -->
                     <section>
                         <pre class="stretch" data-trim data-noescape>
-                            <code class="hljs">&lt;lnci:cite type=&quot;paragraph-ref&quot;&gt;
+                            <code class="xml">&lt;lnci:cite type=&quot;paragraph-ref&quot;&gt;
     &lt;lnci:book&gt;
         &lt;lnci:bookref&gt;
             &lt;lnci:publicationname
@@ -930,7 +1003,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         <!-- Lists, headings, footnotes -->
                         
                         <pre class="stretch">
-                            <code data-trim data-noescape>&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(1)<span class="highlight-red">&lt;span class=&quot;tab&quot;/&gt;</span>protecting plants or wood or other
+                            <code class="xml" data-trim data-noescape>&lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(1)<span class="highlight-red">&lt;span class=&quot;tab&quot;/&gt;</span>protecting plants or wood or other
     plant products from harmful organisms&lt;sup&gt;8&lt;/sup&gt;;&lt;/p&gt;
 &lt;p data-lexisnexis-word-style=&quot;vol-L1&quot;&gt;(2)<span class="highlight-red">&lt;span class=&quot;tab&quot;/&gt;</span>regulating the growth of
     plants&lt;sup&gt;9&lt;/sup&gt;;&lt;/p&gt;
@@ -954,7 +1027,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre class="stretch">
-                            <code>&lt;xsl:when 
+                            <code class="xml">&lt;xsl:when 
     test=&quot;@data-lexisnexis-word-style=('L1', 'vol-L1', 'vol-L1CL', 'vol-L1P', 'sup-L1', 'sup-L1CL')&quot;&gt;
     &lt;xsl:element
         name=&quot;core:listitem&quot;&gt;
@@ -995,7 +1068,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre class="stretch">
-                            <code data-trim data-noescape>&lt;xsl:analyze-string
+                            <code class="xml" data-trim data-noescape>&lt;xsl:analyze-string
     select=&quot;if (node()[1][self::span and .!=''])
         then (span[1]/text()[1])
         else (text()[1])&quot;
@@ -1045,7 +1118,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre class="stretch">
-                            <code>777K Jan 27 08:50 58A_IncomeTaxation_07(1294-1342).rtf
+                            <code class="nohighlight">777K Jan 27 08:50 58A_IncomeTaxation_07(1294-1342).rtf
 750K Jan 27 08:51 58A_IncomeTaxation_08(1343-1396).rtf
 924K Jan 27 08:51 58A_IncomeTaxation_09(1397-1453).rtf
 1.1M Jan 27 08:51 58A_IncomeTaxation_10(1454-1522).rtf
@@ -1079,7 +1152,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                             <code class="hljs">09_Children_12(635-704).xml</code>
                         </pre>
                         <pre class="stretch">
-                            <code class="hljs">&lt;xsl:param
+                            <code class="xml">&lt;xsl:param
     name=&quot;base-pattern&quot;
     select=&quot;'[()a-zA-Z0-9_\s%]+'&quot;/&gt;
 
@@ -1124,7 +1197,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     
                     <section>
                         <pre>
-                            <code class="hljs">&lt;o:OLEObject
+                            <code class="xml">&lt;o:OLEObject
     xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot;
     Type=&quot;Embed&quot;
     ProgID=&quot;Equation.3&quot;
@@ -1134,7 +1207,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </pre>
                         
                         <pre class="fragment">
-                            <code class="hljs">&lt;?eqn file=&quot;HALS_Income.xml&quot; eqn-no=&quot;24&quot;?&gt;</code>
+                            <code class="xml">&lt;?eqn file=&quot;HALS_Income.xml&quot; eqn-no=&quot;24&quot;?&gt;</code>
                         </pre>
                         
                         <aside class="notes">
@@ -1156,15 +1229,14 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <section>
                         <p>So, the final pipeline...</p>
                         <pre class="stretch">
-                            <code class="hljs">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;manifest&gt;
+                            <code class="xml">&lt;manifest&gt;
     &lt;group&gt;
         &lt;item href=&quot;word-to-xhtml5-elements.xsl&quot;/&gt;
         &lt;item href=&quot;add-eqn-pi.xsl&quot;/&gt;
         &lt;item href=&quot;remove-blockparas.xsl&quot;/&gt;
         &lt;item href=&quot;wrap-blocks.xsl&quot;/&gt;
         &lt;item href=&quot;merge_sups.xsl&quot;/&gt;
-        &lt;item href=&quot;merge_spans.xsl&quot;/&gt;	
+        &lt;item href=&quot;merge_spans.xsl&quot;/&gt;    
         &lt;processed-item
             stylesheet=&quot;build-mapping-stylesheet.xsl&quot;&gt;
             &lt;item
@@ -1216,7 +1288,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
         &lt;item href=&quot;html2kepler_tables.xsl&quot;/&gt;
         &lt;item href=&quot;html2kepler_appendices.xsl&quot;/&gt;
         &lt;item href=&quot;html2kepler_desig.xsl&quot;/&gt;
-        &lt;item href=&quot;html2kepler_toc.xsl&quot;/&gt;	
+        &lt;item href=&quot;html2kepler_toc.xsl&quot;/&gt;    
         &lt;item href=&quot;html2kepler_footnotes.xsl&quot;/&gt;
         &lt;item href=&quot;html2kepler_metadata.xsl&quot;/&gt;
         &lt;item href=&quot;html2kepler_listcleanup.xsl&quot;/&gt;
@@ -1232,7 +1304,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <section>
                         <p>...something to simplify the XHTML+MathML with...</p>
                         <pre class="stretch">
-                            <code>&lt;manifest&gt;
+                            <code class="xml">&lt;manifest&gt;
     &lt;group&gt;
         &lt;item href=&quot;mml_simplify.xsl&quot;/&gt;
     &lt;/group&gt;
@@ -1243,7 +1315,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <section>
                         <p>...and another couple of steps to refine.</p>
                         <pre class="stretch">
-                            <code class="hljs">&lt;manifest&gt;
+                            <code class="xml">&lt;manifest&gt;
     &lt;group&gt;
         &lt;item href=&quot;p2_structure.xsl&quot;/&gt;
         &lt;item href=&quot;p2_orphan-supps.xsl&quot;/&gt;
@@ -1309,9 +1381,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         
                         <!-- XSpec manifest example -->
                         <pre>
-                            <code class="hljs">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tests 
+                            <code class="xml">&lt;tests 
     xmlns=&quot;http://www.sgmlguru.org/ns/xproc/steps&quot; 
     manifest=&quot;xslt/manifest-stair-p1-to-p2.xml&quot;
     xml:base=&quot;file:/c:/Users/nordstax/repos/ca-hsd/stair&quot;&gt;
@@ -1330,8 +1400,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
         xslt=&quot;xslt/p2_ftnotes.xsl&quot; 
         xspec=&quot;xspec/p2_ftnotes.xspec&quot; 
         focus=&quot;batch&quot;/&gt;
-&lt;/tests&gt;
-                            </code>
+&lt;/tests&gt;</code>
                         </pre>
                         
                         <aside class="notes">
@@ -1421,14 +1490,14 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.js"></script>
         <script>
-			Reveal.initialize({
-				dependencies: [
-				    { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
+            Reveal.initialize({
+                dependencies: [
+                    { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
                     { src: 'plugin/multiplex/master.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
     </body>
 </html>
