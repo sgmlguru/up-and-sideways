@@ -31,7 +31,7 @@
                         <aside class="notes">
                             <ul>
                                 <li class="fragment">Legal commentary</li>
-                                <li class="fragment">104 volumes</li>
+                                <li class="fragment">104 volumes, ~1300 files</li>
                             </ul>
                             <p>The project is huge, way too big for a 30-min presentation</p>
                             <p>I thought I'd give you a couple of glimpses</p>
@@ -92,20 +92,9 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </aside>
                     </section>
                     
-                    <!--<section>
-                        <p>the rest is about refining, step by step</p>
-                    </section>-->
-                    
                     <section>
                         <!-- TBA Nic's XProc Tools -->
                         <p>Nig Gibson's XProc Tools and Mapping Tools</p>
-                        
-                        <!--<blockquote>We need to read the .Docx or
-                            WordML file and and transform the flat, formatting-rich
-                            XML in a well structured XML document.
-                            One approach to this problem is to create a pipeline that
-                            uses a progressive refinement technique to achieve a simple
-                            sequence of transformations from one format to another</blockquote>-->
                         
                         <aside class="notes">
                             <p>Progressive changes, one at a time</p>
@@ -113,18 +102,6 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                             <p>Take list of XSLT steps in manifest, transform input from one XSLT to the next, in sequence</p>
                         </aside>
                     </section>
-                    
-                    <!--<section>
-                        <h4>Nig Gibson's XProc Tools and Mapping Tools</h4>
-                        <p>(see <a href="https://github.com/Corbas/xproc-tools">https://github.com/Corbas/xproc-tools</a> and <a href="https://github.com/Corbas/mapping-tools">https://github.com/Corbas/mapping-tools</a>)</p>
-                        <p>Publishing with XProc, XML London 2015: <a href="http://xmllondon.com/2015/xmllondon-2015-proceedings.pdf#page=81">http://xmllondon.com/2015/xmllondon-2015-proceedings.pdf#page=81</a></p>
-                        
-                        <aside class="notes">
-                            <!-\- Borrow explanation from Nic's Github page -\->
-                            <p>One change at a time</p>
-                            <p>No attempt is done to produc valid XML until much later</p>
-                        </aside>
-                    </section>-->
                     
                     <section>
                         <pre class="stretch">
@@ -176,6 +153,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         <aside class="notes">
                             <p>Each step is an XSLT</p>
                             <p>One "thing" per step, narrow focus</p>
+                            <p>No attempt is done to produc valid XML until much later</p>
                         </aside>
                     </section>
                     
@@ -314,6 +292,10 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                 <section>
                     <section>
                         <h3>Some examples</h3>
+                        
+                        <aside class="notes">
+                            <p>JustSystem's email about Word conversion</p>
+                        </aside>
                     </section>
                     
                     <section>
@@ -394,9 +376,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     test=&quot;self::*[not(self::section)][@map:level] and @map:level = $level&quot;&gt;
                     &lt;section&gt;...&lt;/section&gt;
                 &lt;/xsl:when&gt;
-                &lt;xsl:otherwise&gt;
-                    &lt;xsl:copy-of select=&quot;current-group()&quot;/&gt;
-                &lt;/xsl:otherwise&gt;
+                ...
             &lt;/xsl:choose&gt;
         &lt;/xsl:for-each-group&gt;
     &lt;/xsl:variable&gt;
@@ -530,21 +510,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
         &lt;xsl:when test=&quot;current-grouping-key()&quot;&gt;
             &lt;xsl:element name=&quot;core:list&quot;&gt;
                 &lt;xsl:attribute name=&quot;type&quot; select=&quot;@type&quot;/&gt;
-                &lt;xsl:for-each-group
-                    select=&quot;current-group()&quot;
-                    group-adjacent=&quot;boolean(self::core:listitem[core:*/@data-lexisnexis-word-style=('L2','L3',
-                    'vol-L1P', 'vol-L2','vol-L3', ...)])&quot;&gt;
-                    &lt;xsl:choose&gt;
-                        &lt;xsl:when test=&quot;current-grouping-key()&quot;&gt;
-                            &lt;xsl:element name=&quot;core:list&quot;&gt;
-                                ...                        
-                            &lt;/xsl:element&gt;
-                        &lt;/xsl:when&gt;
-                        &lt;xsl:otherwise&gt;
-                            ...
-                        &lt;/xsl:otherwise&gt;
-                    &lt;/xsl:choose&gt;
-                &lt;/xsl:for-each-group&gt;
+                ...
             &lt;/xsl:element&gt;
         &lt;/xsl:when&gt;
         &lt;xsl:otherwise&gt;
@@ -695,15 +661,12 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </pre>
                         
                         <pre class="fragment">
-                            <code class="xml">&lt;span class=&quot;smallcaps&quot;&gt;para 1038&lt;/span&gt;</code>
+                            <code class="xml">see &lt;span class=&quot;smallcaps&quot;&gt;para 1038&lt;/span&gt;</code>
                         </pre>
                         
                         <pre class="fragment">
-                            <code class="xml">&lt;core:para
-    data-lexisnexis-word-style=&quot;vol-FP&quot;&gt;See 
-    &lt;span class=&quot;smallcaps&quot;&gt;
-    paras&lt;/span&gt; 122, 145, 167, 853–854, 858–859.
-    &lt;/core:para&gt;</code>
+                            <code class="xml">See &lt;span class=&quot;smallcaps&quot;&gt;
+    paras&lt;/span&gt; 122, 145, 167, 853–854, 858–859.</code>
                         </pre>
                         
                         
@@ -747,7 +710,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     </section>
                     
                     <section>
-                        <p>a<code>nalyze-string</code> for <code>following-sibling::text()[1]</code></p>
+                        <p><code>analyze-string</code> on <code>following-sibling::text()[1]</code></p>
                         
                         <pre>
                             <code class="xml" data-trim data-noescape>&lt;xsl:analyze-string
@@ -847,77 +810,6 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                 
                 
                 
-                <!-- START of file stitcher -->
-                
-                <!--<section>
-                    
-                    <section>
-                        <h3>Stitching files together</h3>
-                    </section>
-                    
-                    <section>
-                        <pre class="stretch">
-                            <code class="nohighlight">777K Jan 27 08:50 58A_IncomeTaxation_07(1294-1342).rtf
-750K Jan 27 08:51 58A_IncomeTaxation_08(1343-1396).rtf
-924K Jan 27 08:51 58A_IncomeTaxation_09(1397-1453).rtf
-1.1M Jan 27 08:51 58A_IncomeTaxation_10(1454-1522).rtf
-953K Jan 27 08:51 58A_IncomeTaxation_11(1523-1592).rtf
-803K Jan 27 08:51 58A_IncomeTaxation_12(1593-1632).rtf
-554K Jan 27 08:51 58A_IncomeTaxation_13(1633-1670).rtf
-587K Jan 27 08:51 58A_IncomeTaxation_14(1671-1703).rtf
-793K Jan 27 08:51 58A_IncomeTaxation_15(1704-1760).rtf
-959K Jan 27 08:55 59_IncomeTaxation_01(1761-1809).rtf
-1020K Jan 27 08:55 59_IncomeTaxation_02(1810-1866).rtf
-1.1M Jan 27 08:55 59_IncomeTaxation_03(1867-1924).rtf
-1.1M Jan 27 08:55 59_IncomeTaxation_04(1925-1975).rtf
-1.3M Jan 27 08:55 59_IncomeTaxation_05(1976-2025).rtf
-1.2M Jan 27 08:55 59_IncomeTaxation_06(2026-2074).rtf
-989K Jan 27 08:55 59_IncomeTaxation_07(2075-2128).rtf
-1.9M Jan 27 08:56 59_IncomeTaxation_08(2129-2174).rtf
-1.1M Jan 27 08:56 59_IncomeTaxation_09(2175-2214).rtf
-1.3M Jan 27 08:56 59_IncomeTaxation_10(2215-2276).rtf
-1.6M Jan 27 08:56 59_IncomeTaxation_11(2277-2332).rtf</code>
-                        </pre>
-                        
-                        <aside class="notes">
-                            <p>For example...</p>
-                            <p>Stitching dozens of files into a single large one</p>
-                            <p>This shows a portion of the Income Taxation title</p>
-                        </aside>
-                    </section>
-                    
-                    <section>
-                        <pre>
-                            <code class="hljs">09_Children_12(635-704).xml</code>
-                        </pre>
-                        <pre class="stretch">
-                            <code class="xml">&lt;xsl:param
-    name=&quot;base-pattern&quot;
-    select=&quot;'[()a-zA-Z0-9_\s%]+'&quot;/&gt;
-
-&lt;xsl:param
-    name=&quot;numparas-pattern&quot;
-    select=&quot;'_[0-9]{2}\([0-9]+[A-Z]*[\-][0-9]+[A-Z]*\)'&quot;/&gt;
-
-&lt;xsl:param
-    name=&quot;suffix-pattern&quot;
-    select=&quot;'\.xml'&quot;/&gt;
-
-&lt;xsl:param
-    name=&quot;pattern&quot;&gt;
-    select=&quot;concat('(',$base-pattern,')(',$numparas-pattern,')',$suffix-pattern)&quot;/&gt;</code>
-                        </pre>
-                        
-                        <aside class="notes">
-                            <p>Again, Halsbury is very formalistic. The naming conventions have been used for online publishing from RTF.</p>
-                            <p>Used very early on, on XHTML files. They are grouped using a single XSLT with a file listing from XProc, all body contents are merged and the resulting file is named using info from the first file.</p>
-                        </aside>
-                    </section>
-                    
-                </section>-->
-                
-                <!-- END of file stitching -->
-                
                 
                 
                 <!-- START of Equations -->
@@ -979,13 +871,13 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                     <section>
                         <ul>
                             <li>XSpec <span class="fragment">(writing XSLT)</span></li>
-                            <li class="fragment">Compare input with output, 39 XSLTs later...</li>
+                            <li class="fragment">Compare input with output, a few dozen XSLTs later...</li>
                             <li class="fragment">Compare batches of input/output files</li>
                         </ul>
                         
                         <aside class="notes">
                             <p>XSpec when writing XSLTs is tremendously useful</p>
-                            <p>It sort of loses its meaning when testing pipelines, though</p>
+                            <p>XSpec sort of loses its meaning when testing pipelines</p>
                             <p>...and batches of files, obviously</p>
                         </aside>
                     </section>
@@ -1015,6 +907,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         </pre>
                         
                         <aside class="notes">
+                            <p>Since we have the step debug XML...</p>
                             <p>Ant macro and XSLTs to generate XSpecs for every file in a batch</p>
                             <p>Ant macro and XSLTs to run a manifest of XSpecs</p>
                         </aside>
@@ -1183,6 +1076,7 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         
                         <aside class="notes">
                             <p>This is because the pipeline is actually run in XProc and we couldn't access THAT serialisation</p>
+                            <p>And this actually isn't everything because there's a collatiion pipeline, too.</p>
                         </aside>
                     </section>
                 </section>
@@ -1226,6 +1120,15 @@ tax reduction schemes&lt;sup&gt;9&lt;/sup&gt;.&lt;/p&gt;</code>
                         
                         <aside class="notes">
                             <p>Lots of legacy code had contains(), for no reason</p>
+                            <p>And just a few weeks ago, right before my holiday...</p>
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <blockquote>Oh, and can we do a roundtrip?</blockquote>
+                        
+                        <aside class="notes">
+                            
                         </aside>
                     </section>
                     
